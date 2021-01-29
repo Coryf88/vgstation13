@@ -2028,7 +2028,7 @@
 "NG" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/djstation)
 "NH" = (/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/obj/machinery/power/solar/control{id_tag = "djstationsolar"; name = "DJ Station Solar Panel Control"},/turf/simulated/floor{icon_state = "dark"},/area/djstation)
 "NI" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/effect/decal/warning_stripes{tag = "icon-warning (EAST)"; icon_state = "warning"; dir = 4},/turf/simulated/floor{icon_state = "dark"},/area/djstation)
-"NJ" = (/obj/machinery/light{dir = 1},/obj/machinery/media/transmitter/broadcast/dj{heating_power = 0},/obj/effect/decal/warning_stripes{icon_state = "unloading"},/turf/simulated/floor{icon_state = "dark"},/area/djstation)
+"NJ" = (/obj/machinery/light{dir = 1},/obj/machinery/media/transmitter/broadcast/dj{heating_power = 0;on = 1},/obj/effect/decal/warning_stripes{icon_state = "unloading"},/turf/simulated/floor{icon_state = "dark"},/area/djstation)
 "NK" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/effect/decal/warning_stripes{tag = "icon-warning (WEST)"; icon_state = "warning"; dir = 8},/turf/simulated/floor{icon_state = "dark"},/area/djstation)
 "NL" = (/obj/machinery/telecomms/relay/preset/ruskie,/turf/simulated/floor{icon_state = "dark"},/area/djstation)
 "NM" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/structure/catwalk,/turf/space,/area/djstation/solars)
