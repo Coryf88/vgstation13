@@ -599,10 +599,74 @@
 	registered_name = "Captain"
 	assignment = "Captain"
 
+	var/cursed_time = null
+	var/cursed_last_pickup_time = null
+	var/cursed_last_pickup_user = null
+
 /obj/item/weapon/card/id/captains_spare/New()
-	var/datum/job/captain/J = new/datum/job/captain
-	access = J.get_access()
+	cursed_time = rand(3000, 12000) // 5 to 20 minutes
+	access = list()
 	..()
+
+/obj/item/weapon/card/id/captains_spare/pickup(mob/living/M)
+	..()
+
+	if (cursed_time < 1)
+		return
+
+	if (world.time >= cursed_time)
+		cursed_time = 0
+		var/datum/job/captain/J = new/datum/job/captain
+		access = J.get_access()
+		return
+
+	if (M == cursed_last_pickup_user && cursed_last_pickup_time < world.time)
+		cant_drop = TRUE
+
+		to_chat(M, "<span class='userdanger'>The [src] starts glowing in your hand.</span>")
+
+		// 1 to 15 seconds
+		spawn(rand(10, 150))
+			cant_drop = FALSE
+			M.drop_item(src, force_drop = TRUE)
+
+			switch(rand(0, 5))
+				if(0)
+					to_chat(M, "<span class='userdanger'>You manage to drop the [src].</span>")
+				if(1)
+					to_chat(M, "<span class='userdanger'>Your body turns to stone.</span>")
+					M.turn_into_statue(forever = 1, force = 1)
+				if(2)
+					if(M.sdisabilities & BLIND)
+						if(M.sdisabilities & DEAF)
+							if(M.sdisabilities & MUTE)
+								// Give up...
+								to_chat(M, "<span class='userdanger'>Thankfully, you explode.</span>")
+								M.gib()
+							else
+								to_chat(M, "<span class='userdanger'>Your throat hurts terribly and you lose the ability to speak!</span>")
+								M.sdisabilities |= MUTE
+						else
+							to_chat(M, "<span class='userdanger'>Your ears hurt terribly and you lose the ability to hear!</span>")
+							M.sdisabilities |= DEAF
+					else
+						to_chat(M, "<span class='userdanger'>Your eyes burn terribly and you lose the ability to see!</span>")
+						M.sdisabilities |= BLIND
+				if(3)
+					to_chat(M, "<span class='userdanger'>Your brain hurts terribly and you raws joa vily...</span>")
+					M.say("me like [pick("kitty","puppy","monkey","block","circle","kite","train","me","you")]")
+					M.adjustBrainLoss(100)
+				if(4)
+					to_chat(M, "<span class='userdanger'>You explode.</span>")
+					M.gib()
+	else
+		to_chat(M, "<span class='userdanger'>A chill goes down your spine as you pick up the [src], causing you to drop it.</span>")
+		M.drop_item(src, force_drop = TRUE)
+
+	// 1 minute
+	cursed_last_pickup_time = world.time + 600
+	cursed_last_pickup_user = M
+
 
 /obj/item/weapon/card/id/admin
 	name = "Admin ID"
