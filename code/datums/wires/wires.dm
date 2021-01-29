@@ -97,7 +97,7 @@ var/list/wireColours = list("red", "blue", "green", "black", "orange", "brown", 
 	for(var/colour in wires)
 		html += "<tr>"
 		html += "<td[row_options1]><font color='[colour]'>[capitalize(colour)]</font>"
-		if(check_wires && wire_names && wires[colour])
+		if((check_wires || access_engine_equip in usr.GetAccess()) && wire_names && wires[colour])
 			html += " ([GetWireName(wires[colour])])"
 		html += "</td>"
 		html += "<td[row_options2]>"
