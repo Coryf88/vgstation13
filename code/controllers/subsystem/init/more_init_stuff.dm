@@ -31,11 +31,12 @@ var/datum/subsystem/more_init/SSmore_init
 	..()
 
 	buildcamlist()
-	if(config.media_base_url)
-		watch = start_watch()
-		log_startup_progress("Caching jukebox playlists...")
-		load_juke_playlists()
-		log_startup_progress("  Finished caching jukebox playlists in [stop_watch(watch)]s.")
+
+	watch = start_watch()
+	log_startup_progress("Caching jukebox playlists...")
+	load_juke_playlists()
+	log_startup_progress("  Finished caching jukebox playlists in [stop_watch(watch)]s.")
+
 	..()
 
 	camera_sort(cameranet.cameras)

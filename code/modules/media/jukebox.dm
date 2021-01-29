@@ -6,100 +6,44 @@
 
 var/global/global_playlists = list()
 /proc/load_juke_playlists()
-	if(!config.media_base_url)
-		return
-	for(var/playlist_id in list("lilslugger", "bar", "jazzswing", "bomberman", "depresso", "echoes", "electronica", "emagged", "endgame", "filk", "funk", "folk", "malfdelta", "medbay", "metal", "muzakjazz", "nukesquad", "rap", "rock", "shoegaze", "security", "shuttle", "thunderdome", "upbeathypedancejam", "SCOTLANDFOREVER", "halloween", "christmas"))
-		var/url="[config.media_base_url]/index.php?playlist=[playlist_id]"
-		//testing("Updating playlist from [url]...")
+	var/json = file2text("config/jukebox.json")
 
-		//  Media Server 2 requires a secret key in order to tell the jukebox
-		// where the music files are. It's set in config with MEDIA_SECRET_KEY
-		// and MUST be the same as the media server's.
-		//
-		//  Do NOT log this, it's like a password.
-		if(config.media_secret_key!="")
-			url += "&key=[config.media_secret_key]"
+	var/json_reader/reader = new()
+	reader.tokens = reader.ScanJson(json)
+	reader.i = 1
+	var/jukeboxData = reader.read_value()
+	for (var/k in jukeboxData)
+		var/list/playlist = list()
+		for (var/list/record in jukeboxData[k])
+			record["length"] = num2text(text2num(record["length"]) * 10)
+			record["crossfade_time"] = num2text(text2num(record["crossfade_time"]) * 10)
 
-		var/response = world.Export(url)
-		var/list/playlist=list()
-		if(response)
-			var/json = file2text(response["CONTENT"])
-			if("/>" in json)
-				continue
-			var/json_reader/reader = new()
-			reader.tokens = reader.ScanJson(json)
-			reader.i = 1
-			var/songdata = reader.read_value()
-			for(var/list/record in songdata)
-				playlist += new /datum/song_info(record)
-			if(playlist.len==0)
-				continue
-			global_playlists["[playlist_id]"] = playlist.Copy()
+			playlist += new /datum/song_info(record)
+
+		if (playlist.len==0)
+			continue
+
+		global_playlists["[k]"] = playlist.Copy()
 
 /obj/machinery/media/jukebox/proc/retrieve_playlist(var/playlistid = playlist_id)
-	if(!config.media_base_url)
-		return
 	playlist_id = playlistid
-	if(global_playlists["[playlistid]"])
+
+	if (global_playlists["[playlistid]"])
 		var/list/temp = global_playlists["[playlistid]"]
 		playlist = temp.Copy()
-
 	else
-		var/url="[config.media_base_url]/index.php?playlist=[playlist_id]"
-		//testing("[src] - Updating playlist from [url]...")
+		playlist = list()
+		visible_message("<span class='warning'>[bicon(src)] \The [src] buzzes, unable to update its playlist.</span>","<em>You hear a buzz.</em>")
+		stat &= BROKEN
+		update_icon()
+		return 0
 
-		//  Media Server 2 requires a secret key in order to tell the jukebox
-		// where the music files are. It's set in config with MEDIA_SECRET_KEY
-		// and MUST be the same as the media server's.
-		//
-		//  Do NOT log this, it's like a password.
-		if(config.media_secret_key!="")
-			url += "&key=[config.media_secret_key]"
+	if (autoplay)
+		playing = 1
+		autoplay = 0
 
-		var/response = world.Export(url)
-		playlist=list()
-		if(response)
-			var/json = file2text(response["CONTENT"])
-			if("/>" in json)
-				visible_message("<span class='warning'>[bicon(src)] \The [src] buzzes, unable to update its playlist.</span>","<em>You hear a buzz.</em>")
-				stat &= BROKEN
-				update_icon()
-				return 0
-			var/json_reader/reader = new()
-			reader.tokens = reader.ScanJson(json)
-			reader.i = 1
-			var/songdata = reader.read_value()
-			for(var/list/record in songdata)
-				if (("track" in record) && record["track"])
-					//sorted playlist
-					if (playlist == list())
-						var/length = 0
-						for(var/list/entry in songdata)
-							length++
-						var/M[length]
-						playlist = M//turns "playlist" into an empty list of size of the actual playlist
-					var/track = text2num(record["track"])
-					playlist.Insert(track, new /datum/song_info(record))
-				else
-					//unsorted playlist
-					playlist += new /datum/song_info(record)
-
-			if(playlist.len==0)
-				visible_message("<span class='warning'>[bicon(src)] \The [src] buzzes, unable to update its playlist.</span>","<em>You hear a buzz.</em>")
-				stat &= BROKEN
-				update_icon()
-				return 0
-			visible_message("<span class='notice'>[bicon(src)] \The [src] beeps, and the menu on its front fills with [playlist.len] items.</span>","<em>You hear a beep.</em>")
-		else
-			testing("[src] failed to update playlist: Response null.")
-			stat &= BROKEN
-			update_icon()
-			return 0
-		global_playlists["[playlistid]"] = playlist.Copy()
-	if(autoplay)
-		playing=1
-		autoplay=0
 	return 1
+
 // Represents a record returned.
 /datum/song_info
 	var/title  = ""
