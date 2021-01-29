@@ -104,7 +104,7 @@
 	var/sqlid = text2num(id)
 	if(!sqlid)
 		return
-	var/datum/DBQuery/query = SSdbcore.NewQuery("SELECT  id, author, title, category, ckey  FROM library WHERE id=:id", list("id" = sqlid))
+	var/datum/DBQuery/query = SSdbcore.NewQuery("SELECT  id, author, title, category, content, ckey  FROM library WHERE id=:id", list("id" = sqlid))
 	if(!query.Execute())
 		message_admins("Error: [query.ErrorMsg()]")
 		log_sql("Error: [query.ErrorMsg()]")
@@ -119,7 +119,8 @@
 			"author"  =query.item[2],
 			"title"   =query.item[3],
 			"category"=query.item[4],
-			"ckey"    =query.item[5]
+			"content" =query.item[5],
+			"ckey"    =query.item[6]
 		))
 		results += CB
 		cached_books["[id]"]=CB
