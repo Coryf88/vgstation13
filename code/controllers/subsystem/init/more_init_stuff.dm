@@ -28,16 +28,8 @@ var/datum/subsystem/more_init/SSmore_init
 	else
 		//holomaps_initialized = 1 //Assume holominimaps were prerendered, the worst thing that happens if they're missing is that the minimap consoles don't show a minimap - NO IT'S NOT YOU DUMBFUCK, THOSE VARS EXIST FOR A REASON
 		log_startup_progress("Not generating holominimaps - SKIP_HOLOMINIMAP_GENERATION found in config/config.txt")
-	..()
 
 	buildcamlist()
-
-	watch = start_watch()
-	log_startup_progress("Caching jukebox playlists...")
-	load_juke_playlists()
-	log_startup_progress("  Finished caching jukebox playlists in [stop_watch(watch)]s.")
-
-	..()
 
 	camera_sort(cameranet.cameras)
 
@@ -49,6 +41,8 @@ var/datum/subsystem/more_init/SSmore_init
 	init_wizard_apprentice_setups()
 	machinery_rating_cache = cache_machinery_components_rating()
 	typing_indicator = new
+
+	..()
 
 /proc/cache_machinery_components_rating()
 	var/list/cache = list()

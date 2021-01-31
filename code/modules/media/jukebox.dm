@@ -5,44 +5,31 @@
  *******************************/
 
 var/global/global_playlists = list()
-/proc/load_juke_playlists()
-	var/json = file2text("config/jukebox.json")
+/obj/machinery/media/jukebox/proc/load_playlist(var/playlistid)
+	var/list/playlist = list()
 
-	var/json_reader/reader = new()
-	reader.tokens = reader.ScanJson(json)
-	reader.i = 1
-	var/jukeboxData = reader.read_value()
-	for (var/k in jukeboxData)
-		var/list/playlist = list()
-		for (var/list/record in jukeboxData[k])
-			record["length"] = num2text(text2num(record["length"]) * 10)
-			record["crossfade_time"] = num2text(text2num(record["crossfade_time"]) * 10)
+	if (fexists("config/jukebox/[lowertext(playlistid)].json"))
+		var/json = file2text("config/jukebox/[lowertext(playlistid)].json")
+		var/json_reader/reader = new()
+		reader.tokens = reader.ScanJson(json)
+		reader.i = 1
+		var/jukeboxData = reader.read_value()
+		for (var/list/record in jukeboxData)
+			// Convert seconds to decaseconds
+			if (!isnull(record["length"]))
+				record["length"] = record["length"] * 10
+			if (!isnull(record["crossfade_time"]))
+				record["crossfade_time"] = record["crossfade_time"] * 10
 
 			playlist += new /datum/song_info(record)
 
-		if (playlist.len==0)
-			continue
+	return playlist
 
-		global_playlists["[k]"] = playlist.Copy()
+/obj/machinery/media/jukebox/proc/retrieve_playlist(var/playlistid)
+	if (!global_playlists["[playlistid]"])
+		global_playlists["[playlistid]"] = load_playlist(playlistid)
 
-/obj/machinery/media/jukebox/proc/retrieve_playlist(var/playlistid = playlist_id)
-	playlist_id = playlistid
-
-	if (global_playlists["[playlistid]"])
-		var/list/temp = global_playlists["[playlistid]"]
-		playlist = temp.Copy()
-	else
-		playlist = list()
-		visible_message("<span class='warning'>[bicon(src)] \The [src] buzzes, unable to update its playlist.</span>","<em>You hear a buzz.</em>")
-		stat &= BROKEN
-		update_icon()
-		return 0
-
-	if (autoplay)
-		playing = 1
-		autoplay = 0
-
-	return 1
+	return global_playlists["[playlistid]"].Copy()
 
 // Represents a record returned.
 /datum/song_info
@@ -57,14 +44,12 @@ var/global/global_playlists = list()
 	var/emagged = 0
 
 /datum/song_info/New(var/list/json)
-	title  = json["title"]
-	artist = json["artist"]
-	album  = json["album"]
-
-	url    = json["url"]
-
-	length = text2num(json["length"])
-	crossfade_time = text2num(json["crossfade_time"])
+	title          = json["title"]
+	artist         = json["artist"]
+	album          = json["album"]
+	url            = json["url"]
+	length         = json["length"]
+	crossfade_time = json["crossfade_time"]
 	if (isnull(crossfade_time))
 		crossfade_time = 0
 
@@ -634,8 +619,17 @@ var/global/list/loopModeNames=list(
 
 /obj/machinery/media/jukebox/process()
 	if(!playlist)
-		if(!retrieve_playlist())
+		playlist = retrieve_playlist(playlist_id)
+		if (playlist.len)
+			if (autoplay)
+				playing = 1
+				autoplay = 0
+		else
+			visible_message("<span class='warning'>[bicon(src)] \The [src] buzzes, unable to update its playlist.</span>","<em>You hear a buzz.</em>")
+			stat &= BROKEN
+			update_icon()
 			return
+
 	if(playing)
 		var/datum/song_info/song
 		var/datum/song_info/next_song_datum
