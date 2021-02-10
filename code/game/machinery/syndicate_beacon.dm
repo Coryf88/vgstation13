@@ -100,7 +100,7 @@
 		newTraitor.ForgeObjectives()
 		newTraitor.AnnounceObjectives()
 
-		message_admins("[key_name(M)]) used a syndicate beacon to become a traitor.")
+		log_admin("[key_name(M)]) used a syndicate beacon to become a traitor.")
 
 		temptext = ""
 

@@ -19,7 +19,7 @@
 				to_chat(usr, "<span class='warning'>[reagentDatum] doesn't exist.</span>")
 				return
 			log_admin("[key_name(usr)] added [reagentDatum] with [reagentAmount] units to [A] at [reagentTemp]K temperature.")
-			message_admins("[key_name(usr)] added [reagentDatum] with [reagentAmount] units to [A] at [reagentTemp]K temperature.")
+			//message_admins("[key_name(usr)] added [reagentDatum] with [reagentAmount] units to [A] at [reagentTemp]K temperature.")
 
 /client/proc/debug_variables(atom/D)
 	set category = "Debug"

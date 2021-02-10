@@ -403,7 +403,7 @@
 		to_chat(user, "<span class='warning'>\The [src] injects a small amount of plasma into \the [best_light].</span>")
 		best_light.rigged = TRUE
 		log_admin("LOG: [user.name] ([user.ckey]) injected a light with plasma, rigging it to explode.")
-		message_admins("LOG: [user.name] ([user.ckey]) injected a light with plasma, rigging it to explode. [formatJumpTo(get_turf(target))]")
+		//message_admins("LOG: [user.name] ([user.ckey]) injected a light with plasma, rigging it to explode. [formatJumpTo(get_turf(target))]")
 	best_light.forceMove(target)
 	target.current_bulb = best_light
 	best_light = null

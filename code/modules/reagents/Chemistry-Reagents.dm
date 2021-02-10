@@ -3827,7 +3827,7 @@
 			spawn(60)
 				if(spawning_horror == 1)
 					to_chat(M, "<b><span class='warning'>Something bursts out from inside you!</span></b>")
-					message_admins("[key_name(M)] [M] has gibbed and spawned a new cyber horror due to nanobots. ([formatJumpTo(M)])")
+					log_admin("[key_name(M)] [M] has gibbed and spawned a new cyber horror due to nanobots. ([formatJumpTo(M)])")
 					if(ishuman(M))
 						var/mob/living/carbon/human/H = M
 						var/typepath
@@ -3894,14 +3894,14 @@
 							H.mutations.Add(M_HULK)
 							H.update_mutations() //Update our mutation overlays
 							H.update_body()
-							message_admins("[key_name(M)] is hopped up on combat nanobots! ([formatJumpTo(M)])")
+							log_admin("[key_name(M)] is hopped up on combat nanobots! ([formatJumpTo(M)])")
 							to_chat(H, "The nanobots supercharge your body!")
 					else if(H.hulk_time<world.time && has_been_armstrong) //TIME'S UP
 						dehulk(H)
 		if(15 to INFINITY)
 			to_chat(M, "<b><big>The nanobots tear your body apart!</b></big>")
 			M.gib()
-			message_admins("[key_name(M)] took too many nanobots and gibbed!([formatJumpTo(M)])")
+			log_admin("[key_name(M)] took too many nanobots and gibbed!([formatJumpTo(M)])")
 
 
 	data++
@@ -4569,7 +4569,7 @@
 							H.mutations.Add(M_HULK)
 							H.update_mutations() //Update our mutation overlays
 							H.update_body()
-							message_admins("[key_name(M)] is TOO SWOLE TO CONTROL (on creatine)! ([formatJumpTo(M)])")
+							log_admin("[key_name(M)] is TOO SWOLE TO CONTROL (on creatine)! ([formatJumpTo(M)])")
 					else if(H.hulk_time<world.time && has_been_hulk) //TIME'S UP
 						dehulk(H)
 					else if(prob(1))

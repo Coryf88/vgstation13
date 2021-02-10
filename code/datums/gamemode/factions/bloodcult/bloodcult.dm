@@ -923,7 +923,7 @@ var/global/global_anchor_bloodstone // Keeps track of what stone becomes the anc
 	for(var/obj/structure/cult/bloodstone/B in bloodstone_list)
 		if (!B.loc)
 			qdel(B)
-			message_admins("Blood Cult: A blood stone was somehow spawned in nullspace. It has been destroyed.")
+			//message_admins("Blood Cult: A blood stone was somehow spawned in nullspace. It has been destroyed.")
 			log_admin("Blood Cult: A blood stone was somehow spawned in nullspace. It has been destroyed.")
 
 /*	prepare_cult_holomap
@@ -977,12 +977,12 @@ var/global/global_anchor_bloodstone // Keeps track of what stone becomes the anc
 
 	if (risk > 0)
 		if(prob(risk))
-			message_admins("With a chance of [risk]% ([living_cultists] Cultists vs [living_noncultists] non-cultists), the cult's activities have been prematurely exposed.")
+			//message_admins("With a chance of [risk]% ([living_cultists] Cultists vs [living_noncultists] non-cultists), the cult's activities have been prematurely exposed.")
 			log_admin("With a chance of [risk]% ([living_cultists] Cultists vs [living_noncultists] non-cultists), the cult's activities have been prematurely exposed.")
 			cult.warning = TRUE
 			command_alert(/datum/command_alert/cult_detected)
 		else
-			message_admins("With a chance of [risk]% ([living_cultists] Cultists vs [living_noncultists] non-cultists), the cult's activities have avoided raising suspicion for now...")
+			//message_admins("With a chance of [risk]% ([living_cultists] Cultists vs [living_noncultists] non-cultists), the cult's activities have avoided raising suspicion for now...")
 			log_admin("With a chance of [risk]% ([living_cultists] Cultists vs [living_noncultists] non-cultists), the cult's activities have avoided raising suspicion for now...")
 			if (M)
 				to_chat(M,"<span class='warning'>Be mindful, overzealous conversions and soul trapping will bring us unwanted attention. You should focus on the objective with your current force.</span>")

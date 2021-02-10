@@ -103,7 +103,7 @@ If all wages are decreased bellow 100%, for example due to the AI spending all t
 		payroll_modifier = station_account.money / requested_payroll_amount
 	else
 		payroll_modifier = 1
-	message_admins("Wages: Payroll Modifier is [round(100*payroll_modifier - 100)]%.")
+	log_admin("Wages: Payroll Modifier is [round(100*payroll_modifier - 100)]%.")
 
 	var/datum/transaction/salaries = new()
 	salaries.purpose = "Employee and Department salaries"

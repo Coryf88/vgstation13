@@ -13,7 +13,7 @@
 		return TRUE
 	var/datum/role/vampire/V = isvampire(owner.current)
 	if (!V)
-		message_admins("BUG: [owner.current] was given a vampire objective but is not a vampire.")
+		log_admin("BUG: [owner.current] was given a vampire objective but is not a vampire.")
 		return FALSE
 
 	if (V.blood_total >= blood_objective)

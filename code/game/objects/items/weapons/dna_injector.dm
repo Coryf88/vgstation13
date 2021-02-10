@@ -129,7 +129,7 @@
 		if(buf.types & DNA2_BUF_SE)
 			if(block)// Isolated injector
 				if (GetState() && block == MONKEYBLOCK && istype(M, /mob/living/carbon/human))
-					message_admins("[key_name_admin(user)] injected [key_name_admin(M)] with the Isolated [name] <span class='warning'>(MONKEY)</span>")
+					//message_admins("[key_name_admin(user)] injected [key_name_admin(M)] with the Isolated [name] <span class='warning'>(MONKEY)</span>")
 					log_attack("[key_name_admin(user)] injected [key_name_admin(M)] with the Isolated [name] (MONKEY)")
 					log_game("[key_name_admin(user)] injected [key_name_admin(M)] with the Isolated [name] <span class='warning'>(MONKEY)</span>")
 				else
@@ -137,7 +137,7 @@
 					log_game("[key_name_admin(user)] injected [key_name_admin(M)] with the Isolated [name]")
 			else
 				if (GetState(MONKEYBLOCK) && istype(M, /mob/living/carbon/human))
-					message_admins("[key_name_admin(user)] injected [key_name_admin(M)] with the [name] <span class='warning'>(MONKEY)</span>")
+					//message_admins("[key_name_admin(user)] injected [key_name_admin(M)] with the [name] <span class='warning'>(MONKEY)</span>")
 					log_attack("[key_name_admin(user)] injected [key_name_admin(M)] with the [name] (MONKEY)")
 					log_game("[key_name_admin(user)] injected [key_name_admin(M)] with the [name] (MONKEY)")
 				else

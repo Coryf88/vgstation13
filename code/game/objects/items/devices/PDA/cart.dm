@@ -313,7 +313,7 @@
 				if(istype(PDA.loc,/mob/living))
 					name = PDA.loc
 				log_admin("STATUS: [user] set status screen with [PDA]. Message: [data1] [data2]")
-				message_admins("STATUS: [user] set status screen with [PDA]. Message: [data1] [data2]")
+				//message_admins("STATUS: [user] set status screen with [PDA]. Message: [data1] [data2]")
 
 		if("alert")
 			status_signal.data["picture_state"] = data1

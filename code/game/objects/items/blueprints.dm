@@ -529,6 +529,6 @@ these cannot rename rooms that are in by default BUT can rename rooms that are c
 	to_chat(user, "Shuttle created!")
 
 
-	message_admins("<span class='notice'>[key_name_admin(user)] has turned [A.name] into a shuttle named [S.name]. [formatJumpTo(get_turf(user))]</span>")
+	//message_admins("<span class='notice'>[key_name_admin(user)] has turned [A.name] into a shuttle named [S.name]. [formatJumpTo(get_turf(user))]</span>")
 	log_admin("[key_name(user)]  has turned [A.name] into a shuttle named [S.name].")
 	qdel(src)

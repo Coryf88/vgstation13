@@ -14,7 +14,7 @@
 	if(!newRole)
 		return
 	if(leader)
-		message_admins("[type]/HandleNewMind([M.key]/[M.name]) was called but there was already a leader ([leader.antag?.key]/[leader.antag?.name]).")
+		log_admin("[type]/HandleNewMind([M.key]/[M.name]) was called but there was already a leader ([leader.antag?.key]/[leader.antag?.name]).")
 	leader = newRole
 
 /datum/faction/wizard_contract/forgeObjectives()

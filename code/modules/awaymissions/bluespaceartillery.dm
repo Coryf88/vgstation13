@@ -45,7 +45,7 @@
 			return
 		if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
 			command_alert(/datum/command_alert/bluespace_artillery)
-			message_admins("[key_name_admin(usr)] has launched an artillery strike.", 1)
+			log_admin("[key_name_admin(usr)] has launched an artillery strike.", 1)
 			var/list/L = list()
 			for(var/turf/T in get_area_turfs(thearea.type))
 				L+=T

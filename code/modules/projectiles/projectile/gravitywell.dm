@@ -32,7 +32,7 @@
 /obj/item/projectile/gravitywell/proc/spawnGravityWell()
 	kill_count = 0
 	log_admin("\[[time_stamp()]\] <b>[key_name(firer)]</b> has created a gravity well at ([loc.x],[loc.y],[loc.z])")
-	message_admins("\[[time_stamp()]\] <b>[key_name(firer)]</b> has created a gravity well at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>([loc.x],[loc.y],[loc.z])</a>)", 1)
+	//message_admins("\[[time_stamp()]\] <b>[key_name(firer)]</b> has created a gravity well at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>([loc.x],[loc.y],[loc.z])</a>)", 1)
 
 	new/obj/effect/overlay/gravitywell(loc)
 	bullet_die()

@@ -100,7 +100,7 @@
 	var/gameactivetime = world.time - ticker.gamestart_time*10 //gamestart_time is expressed in seconds, not deciseconds
 	if(gameactivetime < 5 MINUTES)
 		if(!(gameactivetime % 60))
-			message_admins("The revolution faction exists. [round(((5 MINUTES) - gameactivetime)/60)] minutes until win conditions begin checking.")
+			log_admin("The revolution faction exists. [round(((5 MINUTES) - gameactivetime)/60)] minutes until win conditions begin checking.")
 		return //Don't bother checking for win before 5min
 	if(stage <= FACTION_DEFEATED)
 		return

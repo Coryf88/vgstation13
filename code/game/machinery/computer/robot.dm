@@ -126,7 +126,7 @@
 
 		else if (href_list["eject2"])
 			if (cyborg_detonation_time == 0 || cyborg_detonation_time < world.time)
-				message_admins("<span class='notice'>[key_name_admin(usr)] has initiated the global cyborg killswitch!</span>")
+				//message_admins("<span class='notice'>[key_name_admin(usr)] has initiated the global cyborg killswitch!</span>")
 				log_game("<span class='notice'>[key_name(usr)] has initiated the global cyborg killswitch!</span>")	
 				start_sequence()
 			temp = null
@@ -140,7 +140,7 @@
 			<A href='?src=\ref[src];temp=1'>No</A>"}
 
 		else if (href_list["stop2"])
-			message_admins("<span class='notice'>[key_name_admin(usr)] has halted the global cyborg killswitch!</span>")
+			//message_admins("<span class='notice'>[key_name_admin(usr)] has halted the global cyborg killswitch!</span>")
 			log_game("<span class='notice'>[key_name(usr)] has halted the global cyborg killswitch!</span>")
 			stop_sequence()
 			temp = null
@@ -171,7 +171,7 @@
 					if(choice == "Confirm")
 						if(R && istype(R))
 							if(R.self_destruct())
-								message_admins("<span class='notice'>[key_name_admin(usr)] detonated [R.name]!</span>")
+								//message_admins("<span class='notice'>[key_name_admin(usr)] detonated [R.name]!</span>")
 								log_game("<span class='notice'>[key_name_admin(usr)] detonated [R.name]!</span>")
 			else
 				to_chat(usr, "<span class='warning'>Access Denied.</span>")
@@ -190,7 +190,7 @@
 					var/choice = input("Are you certain you wish to [R.modulelock ? "module-unlock" : "module-lock"] [R.name]?") in list("Confirm", "Abort")
 					if(choice == "Confirm")
 						if(R && istype(R))
-							message_admins("<span class='notice'>[key_name_admin(usr)] [R.modulelock ? "module-unlocked" : "module-locked"] [R.name]!</span>")
+							//message_admins("<span class='notice'>[key_name_admin(usr)] [R.modulelock ? "module-unlocked" : "module-locked"] [R.name]!</span>")
 							log_game("[key_name(usr)] [R.modulelock ? "module-unlocked" : "module-locked"] [R.name]!")
 							R.toggle_modulelock()
 							if (R.modulelock)
@@ -215,7 +215,7 @@
 					var/choice = input("Are you certain you wish to [R.canmove ? "lock down" : "release"] [R.name]?") in list("Confirm", "Abort")
 					if(choice == "Confirm")
 						if(R && istype(R))
-							message_admins("<span class='notice'>[key_name_admin(usr)] [R.canmove ? "locked down" : "released"] [R.name]!</span>")
+							//message_admins("<span class='notice'>[key_name_admin(usr)] [R.canmove ? "locked down" : "released"] [R.name]!</span>")
 							log_game("[key_name(usr)] [R.canmove ? "locked down" : "released"] [R.name]!")
 							R.canmove = !R.canmove
 							if (R.lockcharge)

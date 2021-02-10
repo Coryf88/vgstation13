@@ -613,15 +613,15 @@
 		var/area/A = get_area( locate(new_coords.x_pos, new_coords.y_pos, new_center.z) )
 
 		if(!A)
-			message_admins("<span class='notice'>WARNING: Unable to find an area at [new_coords.x_pos];[new_coords.y_pos];[new_center.z]. [src.name] ([src.type]) will not be moved.")
+			log_admin("<span class='notice'>WARNING: Unable to find an area at [new_coords.x_pos];[new_coords.y_pos];[new_center.z]. [src.name] ([src.type]) will not be moved.")
 			return
 		if(!destroy_everything && !A.shuttle_can_crush) //Breaking blueprint areas and space is fine, breaking the station is not. Breaking randomly generated vaults is fine, in case they spawn in a bad spot!
-			message_admins("<span class='notice'>WARNING: [src.name] ([src.type]) attempted to destroy [A] ([A.type]).</span> If you want [src.name] to be able to move freely and destroy areas, change its \"destroy_everything\" variable to 1.")
+			log_admin("<span class='notice'>WARNING: [src.name] ([src.type]) attempted to destroy [A] ([A.type]).</span> If you want [src.name] to be able to move freely and destroy areas, change its \"destroy_everything\" variable to 1.")
 			return
 		//If any of the new turfs are in the moved shuttle's current area, EMERGENCY ABORT (this leads to the shuttle destroying itself & potentially gibbing everybody inside)
 		if("[new_coords.x_pos];[new_coords.y_pos];[new_center.z]" in our_own_turfs)
 			warning("Shuttle ([src.name]; [src.type]) has attempted to move to a location which overlaps with its current position. Offending turf: [new_coords.x_pos];[new_coords.y_pos];[new_center.z]")
-			message_admins("WARNING: A shuttle ([src.name]; [src.type]) has attempted to move to a location which overlaps with its current position. The shuttle will not be moved.")
+			log_admin("WARNING: A shuttle ([src.name]; [src.type]) has attempted to move to a location which overlaps with its current position. The shuttle will not be moved.")
 			return
 
 
@@ -636,7 +636,7 @@
 		var/add_underlay = 0
 
 		if(!old_turf)
-			message_admins("ERROR when moving [src.name] ([src.type]) - failed to get original turf at [old_C.x_pos];[old_C.y_pos];[our_center.z]")
+			log_admin("ERROR when moving [src.name] ([src.type]) - failed to get original turf at [old_C.x_pos];[old_C.y_pos];[our_center.z]")
 			continue
 		else if(old_turf.preserve_underlay == 0 && istype(old_turf,/turf/simulated/shuttle/wall)) //Varediting a turf's "preserve_underlay" to 1 will protect its underlay from being changed
 			if(old_turf.icon_state in transparent_icons)
@@ -647,7 +647,7 @@
 						add_underlay = 0
 
 		if(!new_turf)
-			message_admins("ERROR when moving [src.name] ([src.type]) - failed to get new turf at [C.x_pos];[C.y_pos];[new_center.z]")
+			log_admin("ERROR when moving [src.name] ([src.type]) - failed to get new turf at [C.x_pos];[C.y_pos];[new_center.z]")
 			continue
 
 		var/turf/displace_to = locate(C.x_pos,throwy,new_center.z)

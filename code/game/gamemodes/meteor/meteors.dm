@@ -57,7 +57,7 @@
 		if(8)
 			wave_l_dir = "west"
 
-	message_admins("[wave_name], containing [wave_size] objects up to [meteor_l_size] size and incoming from the [wave_l_dir], will strike in [meteor_delay/10] seconds.")
+	log_admin("[wave_name], containing [wave_size] objects up to [meteor_l_size] size and incoming from the [wave_l_dir], will strike in [meteor_delay/10] seconds.")
 
 	//Send to all Bhangmeters
 	for(var/obj/machinery/computer/bhangmeter/bhangmeter in doppler_arrays)
@@ -410,7 +410,7 @@ var/list/blob_candidates = list()
 	else
 		new/obj/effect/blob/core(T, no_morph = 1)
 	log_admin("Blob core meteor impacted at [formatJumpTo(loc)] controlled by [key_name(blob_candidate)].")
-	message_admins("Blob core meteor impacted at [formatJumpTo(loc)] controlled by [key_name(blob_candidate)].")
+	//message_admins("Blob core meteor impacted at [formatJumpTo(loc)] controlled by [key_name(blob_candidate)].")
 
 //It's a tool to debug and test stuff, ok? Pls don't hand them out to players unless you just want to set the world on fire.
 /obj/item/weapon/meteor_gun

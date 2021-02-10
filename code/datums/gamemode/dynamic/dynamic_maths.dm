@@ -91,7 +91,7 @@
 	return y
 
 /datum/gamemode/dynamic/proc/generate_threat()
-	message_admins("Generating threat ; mode is [distribution_mode]")
+	//message_admins("Generating threat ; mode is [distribution_mode]")
 	switch (distribution_mode)
 	// Old equation.
 	//threat_level = rand(1,100)*0.6 + rand(1,100)*0.4//https://docs.google.com/spreadsheets/d/1QLN_OBHqeL4cm9zTLEtxlnaJHHUu0IUPzPbsI-DFFmc/edit#gid=499381388

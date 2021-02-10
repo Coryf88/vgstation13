@@ -495,7 +495,7 @@ var/list/arcane_tomes = list()
 				to_chat(user, "<span class='notice'>\The [src] absorbs the power of the [initial(spell.name)] rune.</span>")
 				qdel(R)
 			if (RUNE_CANNOT)//like, that shouldn't even be possible because of the earlier if() check, but just in case.
-				message_admins("Error! ([key_name(user)]) managed to imbue a Conjure Talisman rune. That shouldn't be possible!")
+				log_admin("Error! ([key_name(user)]) managed to imbue a Conjure Talisman rune. That shouldn't be possible!")
 				return
 
 /obj/item/weapon/talisman/proc/word_pulse(var/datum/runeword/W)
@@ -601,7 +601,7 @@ var/list/arcane_tomes = list()
 			else
 				to_chat(user,"<span class='warning'>Although the game appears to hold a shade, it somehow doesn't appear to have a mind capable of manipulating the blade.</span>")
 				to_chat(user,"<span class='danger'>(that's a bug, call Deity, and tell him exactly how you obtained that shade).</span>")
-				message_admins("[key_name(usr)] somehow placed a soul gem containing a shade with no mind inside a soul blade.")
+				log_admin("[key_name(usr)] somehow placed a soul gem containing a shade with no mind inside a soul blade.")
 		SB.update_icon()
 		qdel(sgem)
 		qdel(src)

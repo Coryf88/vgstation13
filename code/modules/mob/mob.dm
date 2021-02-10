@@ -1136,7 +1136,7 @@ Use this proc preferably at the end of an equipment loadout
 
 	msg = copytext(msg, 1, MAX_MESSAGE_LEN)
 	msg = sanitize(msg)
-	message_admins("[usr.key]/([usr.name]) added the following message to their memory. [msg]")
+	//message_admins("[usr.key]/([usr.name]) added the following message to their memory. [msg]")
 	log_admin("[usr.key]/([usr.name]) added the following message to their memory. [msg]")
 	if(mind)
 		mind.store_memory(msg)

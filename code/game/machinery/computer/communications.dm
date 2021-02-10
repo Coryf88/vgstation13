@@ -121,7 +121,7 @@ var/list/shuttle_log = list()
 					if(security_level != old_level)
 						//Only notify the admins if an actual change happened
 						log_game("[key_name(usr)] has changed the security level to [get_security_level()].")
-						message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
+						//message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
 						switch(security_level)
 							if(SEC_LEVEL_GREEN)
 								feedback_inc("alert_comms_green",1)
@@ -145,7 +145,7 @@ var/list/shuttle_log = list()
 				captain_announce(input)//This should really tell who is, IE HoP, CE, HoS, RD, Captain
 				var/turf/T = get_turf(usr)
 				log_say("[key_name(usr)] (@[T.x],[T.y],[T.z]) has made a captain announcement: [input]")
-				message_admins("[key_name_admin(usr)] has made a captain announcement.", 1)
+				//message_admins("[key_name_admin(usr)] has made a captain announcement.", 1)
 				message_cooldown = 1
 				spawn(600)//One minute cooldown
 					message_cooldown = 0
@@ -198,7 +198,7 @@ var/list/shuttle_log = list()
 			response_team.mission = ert_reason
 			response_team.trigger_strike()
 			log_game("[key_name(usr)] has called an ERT with reason: [ert_reason]")
-			message_admins("[key_name_admin(usr)] has called an ERT with reason: [ert_reason]")
+			//message_admins("[key_name_admin(usr)] has called an ERT with reason: [ert_reason]")
 			setMenuState(usr,COMM_SCREEN_MAIN)
 			return
 
@@ -342,7 +342,7 @@ var/list/shuttle_log = list()
 						command_alert("The trading port is now on lockdown. Third party traders are no longer free to dock their shuttles with the station. Reason given:\n\n[reason]", "Trading Port - Now on Lockdown", 1)
 						world << sound('sound/AI/trading_port_closed.ogg')
 						log_game("[key_name(usr)] closed the port to traders for reason: [reason].")
-						message_admins("[key_name_admin(usr)] closed the port to traders for reason: [reason].")
+						//message_admins("[key_name_admin(usr)] closed the port to traders for reason: [reason].")
 						if(trade_shuttle.current_port.areaname == "NanoTrasen Station")
 							var/obj/machinery/computer/shuttle_control/C = trade_shuttle.control_consoles[1] //There should be exactly one
 							if(C)
@@ -358,7 +358,7 @@ var/list/shuttle_log = list()
 						command_alert("The trading port lockdown has been lifted. Third party traders are now free to dock their shuttles with the station.", "Trading Port - Open for Business", 1)
 						world << sound('sound/AI/trading_port_open.ogg')
 						log_game("[key_name(usr)] opened the port to traders.")
-						message_admins("[key_name_admin(usr)] opened the port to traders.")
+						//message_admins("[key_name_admin(usr)] opened the port to traders.")
 						trade_shuttle.add_dock(/obj/docking_port/destination/trade/station)
 						trade_shuttle.notify_port_toggled()
 						ports_open = TRUE
@@ -559,7 +559,7 @@ var/list/shuttle_log = list()
 	if(!isobserver(user))
 		shuttle_log += "\[[worldtime2text()]] Called from [get_area(user)]."
 	log_game("[key_name(user)] has called the shuttle. Justification given : '[justification]'")
-	message_admins("[key_name_admin(user)] has called the shuttle. Justification given : '[justification]'.", 1)
+	//message_admins("[key_name_admin(user)] has called the shuttle. Justification given : '[justification]'.", 1)
 	var/datum/command_alert/emergency_shuttle_called/CA = new /datum/command_alert/emergency_shuttle_called
 	CA.justification = justification
 	command_alert(CA)
@@ -607,7 +607,7 @@ var/list/shuttle_log = list()
 	emergency_shuttle.shuttlealert(1)
 	emergency_shuttle.incall()
 	log_game("[key_name(user)] has called the shuttle.")
-	message_admins("[key_name_admin(user)] has called the shuttle - [formatJumpTo(user)].", 1)
+	//message_admins("[key_name_admin(user)] has called the shuttle - [formatJumpTo(user)].", 1)
 	captain_announce("A crew transfer has been initiated. The shuttle has been called. It will arrive in [round(emergency_shuttle.timeleft()/60)] minutes.")
 
 	return
@@ -621,7 +621,7 @@ var/list/shuttle_log = list()
 	if(emergency_shuttle.direction != -1 && emergency_shuttle.online) //check that shuttle isn't already heading to centcomm
 		emergency_shuttle.recall()
 		log_game("[key_name(user)] has recalled the shuttle.")
-		message_admins("[key_name_admin(user)] has recalled the shuttle - [formatJumpTo(user)].", 1)
+		//message_admins("[key_name_admin(user)] has recalled the shuttle - [formatJumpTo(user)].", 1)
 	return
 
 /obj/machinery/computer/communications/proc/post_status(var/command, var/data1, var/data2)
@@ -663,7 +663,7 @@ var/list/shuttle_log = list()
 			if(result)
 				captain_announce(result)
 				log_say("[key_name(usr)] ([formatJumpTo(get_turf(G))]) has made a captain announcement: [result]")
-				message_admins("[key_name_admin(G)] has made a captain announcement.", 1)
+				//message_admins("[key_name_admin(G)] has made a captain announcement.", 1)
 
 /obj/machinery/computer/communications/Destroy()
 

@@ -97,7 +97,7 @@
 		log_str += "(<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>)"
 
 	bombers += log_str
-	message_admins(log_str, 0, 1)
+	//message_admins(log_str, 0, 1)
 	log_game(log_str)
 
 /obj/item/device/fuse_bomb/admin/admin_warn(mob/user as mob)

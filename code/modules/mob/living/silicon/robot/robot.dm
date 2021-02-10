@@ -563,7 +563,7 @@
 					lawupdate = FALSE
 					disconnect_AI()
 					to_chat(user, "You emag [src]'s interface")
-					message_admins("[key_name_admin(user)] emagged cyborg [key_name_admin(src)]. Laws overidden.")
+					//message_admins("[key_name_admin(user)] emagged cyborg [key_name_admin(src)]. Laws overidden.")
 					log_game("[key_name(user)] emagged cyborg [key_name(src)].  Laws overridden.")
 					clear_supplied_laws()
 					clear_inherent_laws()

@@ -45,7 +45,7 @@
 
 	to_chat(user, "<span class='notice'>\The [src]'s screen flashes green for a moment.</span>")
 
-	message_admins("[key_name_admin(user)] generated an ion law using a LOIC remote.")
+	//message_admins("[key_name_admin(user)] generated an ion law using a LOIC remote.")
 	log_admin("[key_name(user)] generated an ion law using a LOIC remote.")
 
 	for (var/obj/machinery/computer/communications/C in machines)

@@ -336,8 +336,8 @@ var/list/telesci_warnings = list(
 			continue
 
 		var/log = "[key_name(user)] teleported a [ROI] to [formatJumpTo(dest)] from [formatJumpTo(source)]"
-		if(is_type_in_list(ROI,telesci_warnings))
-			message_admins(log)
+		//if(is_type_in_list(ROI,telesci_warnings))
+		//	message_admins(log)
 
 		log_admin(log)
 		do_teleport(ROI, dest, 0)

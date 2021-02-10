@@ -379,10 +379,10 @@
 /datum/mind/proc/take_uplink()
 	var/obj/item/device/uplink/hidden/H = find_syndicate_uplink()
 	if(H)
-		message_admins("Found and deleted [H] for [src].")
+		log_admin("Found and deleted [H] for [src].")
 		qdel(H)
 	else
-		message_admins("The uplink for [src] could not be located for deletion.")
+		log_admin("The uplink for [src] could not be located for deletion.")
 
 /proc/add_law_zero(mob/living/silicon/killer)
 	var/law = "Accomplish your objectives at all costs."
@@ -401,7 +401,7 @@
 	if(!agent)
 		return 0
 	if(!agent.mind)
-		message_admins("tried to call share_syndicate_codephrase() on [agent] but it had no mind!")
+		log_admin("tried to call share_syndicate_codephrase() on [agent] but it had no mind!")
 		return 0
 	var/words
 	if (ischallenger(agent))

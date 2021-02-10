@@ -241,7 +241,7 @@
 				visible_message("<span class='sinister'>[M] tried to [bad_behavior] [src]! DISQUALIFIED!</span>")
 				punishment = "gibbed"
 		if(punishment)
-			message_admins("[M] tried to disarm [src] as a [M.mind.special_role] and was [punishment].")
+			log_admin("[M] tried to disarm [src] as a [M.mind.special_role] and was [punishment].")
 			return
 
 	switch(M.a_intent)

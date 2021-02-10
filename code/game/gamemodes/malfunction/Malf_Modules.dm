@@ -318,7 +318,7 @@ rcd light flash thingy on matter drain
 
 		world << sound('sound/AI/commandreport.ogg', volume = 60)
 		log_admin("Malfunctioning AI: [key_name(user)] has created a custom command report: [input]")
-		message_admins("Malfunctioning AI: [key_name_admin(user)] has created a custom command report", 1)
+		//message_admins("Malfunctioning AI: [key_name_admin(user)] has created a custom command report", 1)
 
 	else
 		var/list/possible_announcements = typesof(/datum/command_alert)
@@ -347,7 +347,7 @@ rcd light flash thingy on matter drain
 				if(announcement.stoptheme)
 					ticker.StopThematic()
 		log_game("Malfunctioning AI: [key_name(user)] faked a centcom announcement: [choices[chosen_announcement]]!")
-		message_admins("Malfunctioning AI: [key_name(user)] faked a centcom announcement: [choices[chosen_announcement]]!")
+		//message_admins("Malfunctioning AI: [key_name(user)] faked a centcom announcement: [choices[chosen_announcement]]!")
 
 /datum/AI_Module/small/reactivate_camera
 	module_name = "Reactivate camera"

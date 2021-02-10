@@ -21,10 +21,10 @@
 
 	var/x0 = epicenter.x
 	var/y0 = epicenter.y
-	var/z0 = epicenter.z
+	//var/z0 = epicenter.z
 
 	if(log)
-		message_admins("EMP with size ([heavy_range], [light_range]) in area [epicenter.loc.name] ([x0],[y0],[z0]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x0];Y=[y0];Z=[z0]'>JMP</A>).")
+		//message_admins("EMP with size ([heavy_range], [light_range]) in area [epicenter.loc.name] ([x0],[y0],[z0]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x0];Y=[y0];Z=[z0]'>JMP</A>).")
 		log_game("EMP with size ([heavy_range], [light_range]) in area [epicenter.loc.name].")
 
 	spawn()

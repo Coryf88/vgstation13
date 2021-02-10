@@ -144,7 +144,7 @@
 		S.expand(STAGE_SUPER, 1)
 		super = TRUE
 	log_admin("[super ? "New super singularity made" : "Singularity gained 15000 energy"] by eating a SM shard with prints: [prints]. Last touched by [src.fingerprintslast].")
-	message_admins("[super ? "New super singularity made" : "Singularity gained 15000 energy"] by eating a SM shard with prints: [prints]. Last touched by [src.fingerprintslast].")
+	//message_admins("[super ? "New super singularity made" : "Singularity gained 15000 energy"] by eating a SM shard with prints: [prints]. Last touched by [src.fingerprintslast].")
 	qdel(src)
 	return 15000
 
@@ -159,7 +159,7 @@
 		S.expand(STAGE_SSGSS, 1)
 		ssgss = TRUE
 	log_admin("[ssgss ? "New SSGSS made" : "Singularity gained 20000 energy"] by eating a SM crystal with prints: [prints]. Last touched by [src.fingerprintslast].")
-	message_admins("[ssgss ? "New SSGSS made" : "Singularity gained 20000 energy"] by eating a SM crystal with prints: [prints]. Last touched by [src.fingerprintslast].")
+	//message_admins("[ssgss ? "New SSGSS made" : "Singularity gained 20000 energy"] by eating a SM crystal with prints: [prints]. Last touched by [src.fingerprintslast].")
 	qdel(src)
 	return 20000
 

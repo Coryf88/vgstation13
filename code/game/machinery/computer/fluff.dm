@@ -33,7 +33,7 @@
 		window_width = new_window_width
 		window_height = new_window_height
 
-		message_admins("[key_name(usr)] has modified the custom computer [src] ([formatJumpTo(src)])")
+		//message_admins("[key_name(usr)] has modified the custom computer [src] ([formatJumpTo(src)])")
 		log_admin("[key_name(usr)] has set the custom computer [src] ([formatJumpTo(src)]) to display: [window_data]")
 
 	if(allow_silicons)

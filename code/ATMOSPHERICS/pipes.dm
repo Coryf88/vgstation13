@@ -268,7 +268,7 @@
 
 	var/turf/T=get_turf(src)
 
-	message_admins("Pipe burst in area [formatJumpTo(T)]")
+	//message_admins("Pipe burst in area [formatJumpTo(T)]")
 	var/area/A=get_area(src)
 	log_game("Pipe burst in area [A.name] ")
 

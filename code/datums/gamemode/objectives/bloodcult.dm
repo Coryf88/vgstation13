@@ -5,7 +5,7 @@
 	var/altar_built = FALSE
 
 /datum/objective/bloodcult_reunion/PostAppend()
-	message_admins("Blood Cult: A cult dedicated to Nar-Sie has formed aboard the station.")
+	//message_admins("Blood Cult: A cult dedicated to Nar-Sie has formed aboard the station.")
 	log_admin("Blood Cult: A cult dedicated to Nar-Sie has formed aboard the station.")
 	return TRUE
 
@@ -24,7 +24,7 @@
 
 /datum/objective/bloodcult_followers/PostAppend()
 	explanation_text = "The Followers: Perform the conversion ritual on [convert_target] crew members."
-	message_admins("Blood Cult: ACT I has begun.")
+	//message_admins("Blood Cult: ACT I has begun.")
 	log_admin("Blood Cult: ACT I has begun.")
 	return TRUE
 
@@ -57,7 +57,7 @@
 		if (iscultist(sacrifice_target))
 			target_role = ", the cultist,"
 		explanation_text = "The Sacrifice: Nar-Sie requires the flesh of [sacrifice_target.real_name][target_role] to breach reality. Sacrifice them at an altar using a cult blade. If you feel merciful for their soul, you may use an empty soul blade."
-		message_admins("Blood Cult: ACT II has begun, the sacrifice target is [sacrifice_target.real_name][target_role].")
+		//message_admins("Blood Cult: ACT II has begun, the sacrifice target is [sacrifice_target.real_name][target_role].")
 		log_admin("Blood Cult: ACT II has begun, the sacrifice target is [sacrifice_target.real_name][target_role].")
 		//var/datum/faction/bloodcult/cult = faction
 		//cult.target_change = TRUE
@@ -76,7 +76,7 @@
 		if (iscultist(sacrifice_target))
 			target_role = ", the cultist,"
 		explanation_text = "The Sacrifice: Nar-Sie requires the flesh of [sacrifice_target.real_name][target_role] to breach reality. Sacrifice them at an altar using a cult blade. If you feel merciful for their soul, you may use an empty soul blade."
-		message_admins("Blood Cult: [M ? "[key_name(M)] has communed with Nar-Sie about a missing sacrifice target. " : ""]A new sacrifice target has been assigned: [sacrifice_target.real_name][target_role].")
+		//message_admins("Blood Cult: [M ? "[key_name(M)] has communed with Nar-Sie about a missing sacrifice target. " : ""]A new sacrifice target has been assigned: [sacrifice_target.real_name][target_role].")
 		log_admin("Blood Cult: [M ? "[key_name(M)] has communed with Nar-Sie about a missing sacrifice target. " : ""]A new sacrifice target has been assigned: [sacrifice_target.real_name][target_role].")
 		//var/datum/faction/bloodcult/cult = faction
 		//cult.target_change = TRUE
@@ -106,7 +106,7 @@
 
 	if(possible_targets.len <= 0) // If there are only non-implanted players left on the station, we'll have to sacrifice one of them
 		if (backup_targets.len <= 0)
-			message_admins("Blood Cult: Could not find a suitable sacrifice target. Trying again in a minute.")
+			//message_admins("Blood Cult: Could not find a suitable sacrifice target. Trying again in a minute.")
 			log_admin("Blood Cult: Could not find a suitable sacrifice target. Trying again in a minute.")
 			return null
 		else
@@ -138,7 +138,7 @@
 	target_bloodspill = round(floor_count * percent_bloodspill / 100)
 	target_bloodspill += rand(-20,20)
 	explanation_text = "The Blood Bath: The blood stones have risen. Spill blood accross [target_bloodspill] of the station's floors to fill them up before the crew destroys them all."
-	message_admins("Blood Cult: ACT III has begun. The cult has to spill blood over [target_bloodspill] floor tiles, out of the station's [floor_count] floor tiles.")
+	//message_admins("Blood Cult: ACT III has begun. The cult has to spill blood over [target_bloodspill] floor tiles, out of the station's [floor_count] floor tiles.")
 	log_admin("Blood Cult: ACT III has begun. The cult has to spill blood over [target_bloodspill] floor tiles, out of the station's [floor_count] floor tiles.")
 	return TRUE
 
@@ -196,14 +196,14 @@
 		if (B.loc)
 			B.holomap_datum.initialize_holomap(B.loc)
 		else
-			message_admins("Blood Cult: A blood stone was somehow spawned in nullspace. It has been destroyed.")
+			//message_admins("Blood Cult: A blood stone was somehow spawned in nullspace. It has been destroyed.")
 			log_admin("Blood Cult: A blood stone was somehow spawned in nullspace. It has been destroyed.")
 			qdel(B)
 
 	spawn()
 		anchor.dance_start()//the dance starts once, and only ends for good when Nar-Sie rises or the anchor is destroyed first.
 
-	message_admins("Blood Cult: ACT IV has begun.")
+	//message_admins("Blood Cult: ACT IV has begun.")
 	log_admin("Blood Cult: ACT IV has begun.")
 	return TRUE
 
@@ -224,7 +224,7 @@
 	var/timer = 2 MINUTES
 
 /datum/objective/bloodcult_feast/PostAppend()
-	message_admins("Blood Cult: The cult has won.")
+	//message_admins("Blood Cult: The cult has won.")
 	log_admin("Blood Cult: The cult has won.")
 	spawn (timer)
 		var/datum/faction/bloodcult/cult = faction

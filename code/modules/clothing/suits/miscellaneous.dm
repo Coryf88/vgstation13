@@ -955,7 +955,7 @@ obj/item/clothing/suit/poncho
 	if(whitelist == H) //No bombing ourselves by checking ourselves
 		return
 	explosion(H, 1, 3, 6)
-	message_admins("[H] has detonated \the [src]!")
+	//message_admins("[H] has detonated \the [src]!")
 	qdel(src) //Just in case
 
 /datum/action/item_action/toggle_bomber_vest

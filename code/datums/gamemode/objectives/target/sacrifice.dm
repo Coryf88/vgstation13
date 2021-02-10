@@ -7,7 +7,7 @@
 
 /datum/objective/target/assassinate/sacrifice/PostAppend()
 	if (!find_target())
-		message_admins("Could not find a target to sacrifice, rerolling objectives the hard way.")
+		log_admin("Could not find a target to sacrifice, rerolling objectives the hard way.")
 		var/datum/faction/cult/narsie/cult = faction
 		cult.getNewObjective()
 		. = FALSE
@@ -39,7 +39,7 @@
 				possible_targets += player.mind
 
 	if(!possible_targets.len)
-		message_admins("Could not find a suitable sacrifice target.")
+		log_admin("Could not find a suitable sacrifice target.")
 		return FALSE
 
 	return possible_targets

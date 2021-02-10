@@ -304,6 +304,6 @@ var/global/list/obj/machinery/field_generator/field_gen_list = list()
 			if(O.last_warning && temp)
 				if((world.time - O.last_warning) > 50) //to stop message-spam
 					temp = 0
-					message_admins("A singulo exists and a containment field has failed.",1)
+					log_admin("A singulo exists and a containment field has failed.",1)
 					investigation_log(I_SINGULO,"has <font color='red'>failed</font> whilst a singulo exists.")
 			O.last_warning = world.time

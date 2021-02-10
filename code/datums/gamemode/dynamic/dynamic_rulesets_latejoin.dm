@@ -127,7 +127,7 @@
 /datum/dynamic_ruleset/latejoin/ninja/execute()
 	var/mob/M = pick(candidates)
 	if(!latejoinprompt(M,src))
-		message_admins("[M.key] has opted out of becoming a ninja.")
+		//message_admins("[M.key] has opted out of becoming a ninja.")
 		return 0
 	assigned += M
 	candidates -= M

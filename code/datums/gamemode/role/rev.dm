@@ -11,7 +11,7 @@
 
 /datum/role/revolutionary/AssignToRole(var/datum/mind/M, var/override = 0, var/roundstart = 0)
 	if (!(M && M.current) || (M.current.z != map.zMainStation && !roundstart))
-		message_admins("Error: cannot create a revolutionary off the main z-level.")
+		log_admin("Error: cannot create a revolutionary off the main z-level.")
 		return FALSE
 	return ..()
 

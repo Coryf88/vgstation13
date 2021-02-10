@@ -47,7 +47,7 @@
 	A.OnFired()
 	A.process()
 	chassis.log_message("Fired from [src.name], targeting [originaltarget].")
-	message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [originaltarget] ([formatJumpTo(chassis)])",0,1)
+	//message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [originaltarget] ([formatJumpTo(chassis)])",0,1)
 	log_attack("[key_name(chassis.occupant)] fired \a [src] from [chassis] towards [originaltarget] ([formatLocation(chassis)])")
 	do_after_cooldown()
 	return
@@ -155,7 +155,7 @@
 		*/
 	chassis.use_power(energy_drain)
 	log_message("Honked from [src.name]. HONK!")
-	message_admins("[key_name_and_info(chassis.occupant)] used a Mecha Honker in ([formatJumpTo(chassis)])",0,1)
+	//message_admins("[key_name_and_info(chassis.occupant)] used a Mecha Honker in ([formatJumpTo(chassis)])",0,1)
 	log_game("[key_name(chassis.occupant)] used a Mecha Honker in ([formatJumpTo(chassis)])")
 	do_after_cooldown()
 	return
@@ -255,7 +255,7 @@
 		A.OnFired()
 		A.process()
 	log_message("Fired from [src.name], targeting [originaltarget].")
-	message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [originaltarget] ([formatJumpTo(chassis)])",0,1)
+	//message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [originaltarget] ([formatJumpTo(chassis)])",0,1)
 	log_attack("[key_name(chassis.occupant)] fired \a [src] from [chassis] towards [originaltarget] ([formatLocation(chassis)])")
 	do_after_cooldown()
 	return
@@ -309,7 +309,7 @@
 		sleep(2)
 	set_ready_state(0)
 	log_message("Fired from [src.name], targeting [originaltarget].")
-	message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [originaltarget] ([formatJumpTo(chassis)])",0,1)
+	//message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [originaltarget] ([formatJumpTo(chassis)])",0,1)
 	log_attack("[key_name(chassis.occupant)] fired \a [src] from [chassis] towards [originaltarget] ([formatLocation(chassis)])")
 	do_after_cooldown()
 	return
@@ -338,7 +338,7 @@
 	M.throw_at(target, missile_range, missile_speed)
 	projectiles--
 	log_message("Fired from [src.name], targeting [originaltarget].")
-	message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [originaltarget] ([formatJumpTo(chassis)])",0,1)
+	//message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [originaltarget] ([formatJumpTo(chassis)])",0,1)
 	log_attack("[key_name(chassis.occupant)] fired \a [src] from [chassis] towards [originaltarget] ([formatLocation(chassis)])")
 	do_after_cooldown()
 	return
@@ -388,7 +388,7 @@
 	G.throw_at(target, missile_range, missile_speed)
 	projectiles--
 	log_message("Fired from [src.name], targeting [originaltarget].")
-	message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [originaltarget] ([formatJumpTo(chassis)])",0,1)
+	//message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [originaltarget] ([formatJumpTo(chassis)])",0,1)
 	log_attack("[key_name(chassis.occupant)] fired \a [src] from [chassis] towards [originaltarget] ([formatLocation(chassis)])")
 	spawn(det_time)
 		if(grenade)
@@ -500,7 +500,7 @@
 	B.throw_at(target, missile_range, missile_speed)
 	projectiles--
 	log_message("Bananed from [src.name], targeting [target]. HONK!")
-	message_admins("[key_name_and_info(chassis.occupant)] banana'd \a [src] towards [target] ([formatJumpTo(chassis)])",0,1)
+	//message_admins("[key_name_and_info(chassis.occupant)] banana'd \a [src] towards [target] ([formatJumpTo(chassis)])",0,1)
 	log_game("[key_name(chassis.occupant)] banana'd \a [src] towards [target] ([formatLocation(chassis)])")
 	do_after_cooldown()
 	return
@@ -531,7 +531,7 @@
 	M.throw_at(target, missile_range, missile_speed)
 	projectiles--
 	log_message("Launched a mouse-trap from [src.name], targeting [target]. HONK!")
-	message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [target] ([formatJumpTo(chassis)])",0,1)
+	//message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [target] ([formatJumpTo(chassis)])",0,1)
 	log_attack("[key_name(chassis.occupant)] fired \a [src] from [chassis] towards [target] ([formatLocation(chassis)])")
 	do_after_cooldown()
 	return
@@ -562,7 +562,7 @@
 	P.throw_at(target, missile_range, missile_speed)
 	projectiles--
 	log_message("Cream-pied from [src.name], targeting [target]. HONK!")
-	message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [target] ([formatJumpTo(chassis)])",0,1)
+	//message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [target] ([formatJumpTo(chassis)])",0,1)
 	log_attack("[key_name(chassis.occupant)] fired \a [src] from [chassis] towards [target] ([formatLocation(chassis)])")
 	do_after_cooldown()
 	return
@@ -592,7 +592,7 @@
 	playsound(src,'sound/weapons/whip.ogg', 20, 1) //because mechs play the sound anyways
 	projectiles--
 	log_message("Fired from [src.name], targeting [originaltarget].")
-	message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [originaltarget] ([formatJumpTo(chassis)])",0,1)
+	//message_admins("[key_name_and_info(chassis.occupant)] fired \a [src] towards [originaltarget] ([formatJumpTo(chassis)])",0,1)
 	log_attack("[key_name(chassis.occupant)] fired \a [src] from [chassis] towards [originaltarget] ([formatLocation(chassis)])")
 	do_after_cooldown()
 	return

@@ -81,7 +81,7 @@ Refactored AI modules by N3X15
 	var/time = time2text(world.realtime,"hh:mm:ss")
 	var/log_entry = "[fmtSubject(sender)]) used [src.name] on [targetName] ([formatJumpTo(sender, "JMP")])"
 	lawchanges.Add("[time] : [log_entry]")
-	message_admins(log_entry)
+	//message_admins(log_entry)
 	log_game(log_entry)
 	score["lawchanges"]++
 	return 1

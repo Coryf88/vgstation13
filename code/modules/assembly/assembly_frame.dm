@@ -290,7 +290,7 @@
 				var/from_text_result = from_text(assembly_data, require_parts_for_import, used_parts)
 				if(from_text_result == 1)
 					to_chat(user, "<span class='info'>Configuration imported successfully.</span>")
-					message_admins("[key_name_admin(user)] has imported a configuration with [assemblies.len] elements into an assembly frame! [formatJumpTo(get_turf(src))]")
+					log_admin("[key_name_admin(user)] has imported a configuration with [assemblies.len] elements into an assembly frame! [formatJumpTo(get_turf(src))]")
 				else if(from_text_result == null)
 					to_chat(user, "<span class='notice'>Unable to import configuration: corrupt input data.</span>")
 				else if(from_text_result == 0)

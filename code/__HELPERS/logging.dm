@@ -69,12 +69,12 @@
 /proc/log_adminghost(text)
 	if (config.log_adminghost)
 		diary << html_decode("\[[time_stamp()]]ADMINGHOST: [text]")
-		message_admins("\[ADMINGHOST\] [text]")
+		//message_admins("\[ADMINGHOST\] [text]")
 
 /proc/log_ghost(text)
 	if (config.log_adminghost)
 		diary << html_decode("\[[time_stamp()]]GHOST: [text]")
-		message_admins("\[GHOST\] [text]")
+		//message_admins("\[GHOST\] [text]")
 
 
 /**
@@ -115,8 +115,8 @@
 
 	var/msg = "<span class='[span_class]'>[user_text] has [what_done].</span>[link]"
 	log_game(msg)
-	if (admin)
-		message_admins(msg)
+	//if (admin)
+	//	message_admins(msg)
 
 /**
  * Standardized method for tracking startup times.

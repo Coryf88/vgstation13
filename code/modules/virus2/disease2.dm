@@ -442,7 +442,7 @@ var/global/list/disease2_list = list()
 			var/datum/data/record/v = virusDB["[D.uniqueID]-[D.subID]"]
 			nickname = v.fields["nickname"] ? " \"[v.fields["nickname"]]\"" : ""
 		log_admin("[infectedMob] was infected with [D.form] #[add_zero("[D.uniqueID]", 4)]-[add_zero("[D.subID]", 4)][nickname] by [C.ckey]")
-		message_admins("[infectedMob] was infected with  [D.form] #[add_zero("[D.uniqueID]", 4)]-[add_zero("[D.subID]", 4)][nickname] by [C.ckey]")
+		//message_admins("[infectedMob] was infected with  [D.form] #[add_zero("[D.uniqueID]", 4)]-[add_zero("[D.subID]", 4)][nickname] by [C.ckey]")
 		D.AddToGoggleView(infectedMob)
 	else
 		var/obj/item/weapon/virusdish/dish = new(C.mob.loc)

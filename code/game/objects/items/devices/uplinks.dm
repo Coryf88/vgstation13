@@ -146,7 +146,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	..()
 
 	if (!is_holder_of(usr, src))
-		message_admins("[key_name(usr)] tried to access [src], an unlocked PDA, despite not being its holder. ([formatJumpTo(get_turf(src))])")
+		log_admin("[key_name(usr)] tried to access [src], an unlocked PDA, despite not being its holder. ([formatJumpTo(get_turf(src))])")
 		return FALSE
 
 	if(!active)
@@ -172,9 +172,9 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				if(I)
 					I.buy(src, usr)
 			else
-				var/text = "[key_name(usr)] tried to purchase an uplink item that doesn't exist"
+				//var/text = "[key_name(usr)] tried to purchase an uplink item that doesn't exist"
 				var/textalt = "[key_name(usr)] tried to purchase an uplink item that doesn't exist [item]"
-				message_admins(text)
+				//message_admins(text)
 				log_game(textalt)
 				admin_log.Add(textalt)
 

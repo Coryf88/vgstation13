@@ -222,10 +222,10 @@
 		to_chat(subject, "<span class='good'>You feel your mind become clear and focused as you discover your newfound faith. You are now a follower of [name].</span>")
 		if (!preacher)
 			var/msg = "\The [key_name(subject)] has been converted to [name] without a preacher."
-			message_admins(msg)
+			log_admin(msg)
 		else
 			var/msg = "[key_name(subject)] has been converted to [name] by \The [key_name(preacher)]."
-			message_admins(msg)
+			log_admin(msg)
 	else
 		to_chat(subject, "<span class='good'>You are reminded you were christened into [name] long ago.</span>")
 
@@ -247,7 +247,7 @@
 
 /datum/religion/proc/OnPostActivation()
 	if(converts_everyone)
-		message_admins("[key_name(religiousLeader)] has selected [name] and converted the entire crew.")
+		log_admin("[key_name(religiousLeader)] has selected [name] and converted the entire crew.")
 		for(var/mob/living/carbon/human/H in player_list)
 			if(isReligiousLeader(H))
 				continue

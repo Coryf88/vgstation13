@@ -257,7 +257,7 @@ var/global/list/obj/machinery/light/alllights = list()
 				if(current_bulb.status == LIGHT_OK && trigger)
 
 					log_admin("LOG: Rigged light explosion, last touched by [fingerprintslast]")
-					message_admins("LOG: Rigged light explosion, last touched by [fingerprintslast]")
+					//message_admins("LOG: Rigged light explosion, last touched by [fingerprintslast]")
 
 					explode()
 			else if( prob( min(60, current_bulb.switchcount*current_bulb.switchcount*0.01) ) )
@@ -339,7 +339,7 @@ var/global/list/obj/machinery/light/alllights = list()
 				if(on && current_bulb.rigged)
 
 					log_admin("LOG: Rigged light explosion, last touched by [fingerprintslast]")
-					message_admins("LOG: Rigged light explosion, last touched by [fingerprintslast]")
+					//message_admins("LOG: Rigged light explosion, last touched by [fingerprintslast]")
 
 					explode()
 			else
@@ -749,7 +749,7 @@ var/global/list/obj/machinery/light/alllights = list()
 		stack_trace("Couldn't remove plasma from the syringe?")
 		return INJECTION_RESULT_FAIL
 	log_admin("LOG: [user.name] ([user.ckey]) injected a light with plasma, rigging it to explode.")
-	message_admins("LOG: [user.name] ([user.ckey]) injected a light with plasma, rigging it to explode.")
+	//message_admins("LOG: [user.name] ([user.ckey]) injected a light with plasma, rigging it to explode.")
 	rigged = 1
 	return INJECTION_RESULT_SUCCESS_BUT_SKIP_REAGENT_TRANSFER
 

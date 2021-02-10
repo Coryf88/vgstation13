@@ -349,7 +349,7 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 		var/picked_area = formatLocation(picked_turf)
 		var/log_message = "[type] has been destroyed. Creating one at"
 		log_game("[log_message] [picked_area]")
-		message_admins("[log_message] [formatJumpTo(picked_turf, picked_area)]")
+		//message_admins("[log_message] [formatJumpTo(picked_turf, picked_area)]")
 		nukedisk = new /obj/item/weapon/disk/nuclear(picked_turf)
 		respawned = 1
 
@@ -358,10 +358,10 @@ var/obj/item/weapon/disk/nuclear/nukedisk
 	if(!T)
 		var/atom/A
 		for(A=src, A && A.loc && !isturf(A.loc), A=A.loc);  // semicolon is for the empty statement
-		message_admins("\The [src] ended up in nullspace somehow, and has been replaced.[loc ? " It was contained in [A] when it was nullspaced." : ""]")
+		log_admin("\The [src] ended up in nullspace somehow, and has been replaced.[loc ? " It was contained in [A] when it was nullspaced." : ""]")
 		qdel(src)
 	if(T.z != map.zMainStation && T.z != map.zCentcomm)
 		var/atom/A
 		for(A=src, A && A.loc && !isturf(A.loc), A=A.loc);  // semicolon is for the empty statement
-		message_admins("\The [src] ended up in a non-authorised z-Level somehow, and has been replaced.[loc ? " It was contained in [A] when it was moved." : ""]")
+		log_admin("\The [src] ended up in a non-authorised z-Level somehow, and has been replaced.[loc ? " It was contained in [A] when it was moved." : ""]")
 		qdel(src)

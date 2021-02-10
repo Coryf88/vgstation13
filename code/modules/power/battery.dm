@@ -280,7 +280,7 @@ var/global/list/battery_online =	list(
 /obj/machinery/power/battery/proc/ion_act()
 	if(src.z == map.zMainStation)
 		if(prob(1)) //explosion
-			message_admins("<span class='warning'>SMES explosion in [get_area(src)]</span>")
+			log_admin("<span class='warning'>SMES explosion in [get_area(src)]</span>")
 			src.visible_message("<span class='warning'>\The [src] is making strange noises!</span>",
 								"<span class='warning'>You hear sizzling electronics.</span>")
 
@@ -294,14 +294,14 @@ var/global/list/battery_online =	list(
 			qdel(src)
 			return
 		else if(prob(15)) //Power drain
-			message_admins("<span class='warning'>SMES power drain in [get_area(src)]</span>")
+			log_admin("<span class='warning'>SMES power drain in [get_area(src)]</span>")
 			spark(src)
 			if(prob(50))
 				emp_act(1)
 			else
 				emp_act(2)
 		else if(prob(5)) //smoke only
-			message_admins("<span class='warning'>SMES smoke in [get_area(src)]</span>")
+			log_admin("<span class='warning'>SMES smoke in [get_area(src)]</span>")
 			var/datum/effect/effect/system/smoke_spread/smoke = new()
 			smoke.set_up(3, 0, src.loc)
 			smoke.attach(src)

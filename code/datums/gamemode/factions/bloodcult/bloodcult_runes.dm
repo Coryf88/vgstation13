@@ -616,7 +616,7 @@
 		rune.blood1 = null
 		qdel(rune)
 	else
-		message_admins("Error! Trying to erase a word from a rune with no words!")
+		log_admin("Error! Trying to erase a word from a rune with no words!")
 		qdel(rune)
 		return null
 	return word_erased

@@ -32,6 +32,6 @@
 			var/obj/effect/plantsegment/vine = new(T,seed,start_fully_mature = 1)
 			vine.process()
 
-			message_admins("<span class='notice'>Event: Spacevines ([strength]% Strength) spawned at [T.loc] <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>(JMP)</a></span>")
+			log_admin("<span class='notice'>Event: Spacevines ([strength]% Strength) spawned at [T.loc] <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>(JMP)</a></span>")
 			return
-		message_admins("<span class='notice'>Event: Spacevines failed to find a viable turf.</span>")
+		log_admin("<span class='notice'>Event: Spacevines failed to find a viable turf.</span>")

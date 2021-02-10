@@ -75,7 +75,7 @@
 	if(user)
 		log_attack("<font color='red'>[user.name] ([user.ckey]) primed \a [src]</font>")
 		log_admin("ATTACK: [user] ([user.ckey]) primed \a [src]")
-		message_admins("ATTACK: [user] ([user.ckey]) primed \a [src]")
+		//message_admins("ATTACK: [user] ([user.ckey]) primed \a [src]")
 
 	icon_state = initial(icon_state) + "_active"
 	active = 1

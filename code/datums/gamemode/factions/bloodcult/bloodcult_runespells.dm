@@ -463,7 +463,7 @@
 		update_progbar()
 
 		sleep(10)
-	message_admins("A rune ritual has iterated for over 1000 blood payment procs. Something's wrong there.")
+	log_admin("A rune ritual has iterated for over 1000 blood payment procs. Something's wrong there.")
 
 /datum/rune_spell/blood_cult/raisestructure/proc/success()
 	new spawntype(spell_holder.loc)
@@ -472,7 +472,7 @@
 		if(cult)
 			cult.stage(CULT_ACT_I)
 		else
-			message_admins("Blood Cult: An altar was raised... but we cannot find the cult faction. Excellent bus.")
+			log_admin("Blood Cult: An altar was raised... but we cannot find the cult faction. Excellent bus.")
 	qdel(spell_holder) //Deletes the datum as well.
 
 //RUNE II
@@ -777,7 +777,7 @@
 		update_progbar()
 
 		sleep(10)
-	message_admins("A rune ritual has iterated for over 1000 blood payment procs. Something's wrong there.")
+	log_admin("A rune ritual has iterated for over 1000 blood payment procs. Something's wrong there.")
 
 /datum/rune_spell/blood_cult/conjuretalisman/proc/success()
 	for(var/mob/living/L in contributors)
@@ -1077,7 +1077,7 @@
 				spawn(5)//waiting half a second to make sure that the sacrifice objective won't designate a victim that just refused conversion
 					cult.stage(CULT_ACT_II)
 			else
-				message_admins("Blood Cult: A conversion ritual occured...but we cannot find the cult faction...")//failsafe in case of admin varedit fuckery
+				log_admin("Blood Cult: A conversion ritual occured...but we cannot find the cult faction...")//failsafe in case of admin varedit fuckery
 			cult_risk(activator)//risk of exposing the cult early if too many conversions
 			var/datum/role/streamer/streamer_role = activator?.mind?.GetRole(STREAMER)
 			if(streamer_role && streamer_role.team == ESPORTS_CULTISTS)
@@ -1110,7 +1110,7 @@
 				convert(convertee, converter)
 				conversion.icon_state = ""
 				flick("rune_convert_success",conversion)
-				message_admins("BLOODCULT: [key_name(convertee)] has been converted by [key_name(converter)].")
+				//message_admins("BLOODCULT: [key_name(convertee)] has been converted by [key_name(converter)].")
 				log_admin("BLOODCULT: [key_name(convertee)] has been converted by [key_name(converter)].")
 				if (issilicon(victim))
 					var/mob/living/silicon/S = victim
@@ -1151,12 +1151,12 @@
 				if (success == CONVERSION_NOCHOICE)
 					if (convertee.mind)//no need to generate logs when capturing mindless monkeys
 						to_chat(victim, "<span class='danger'>Because you didn't give your answer in time, you were automatically made prisoner.</span>")
-						message_admins("BLOODCULT: [key_name(convertee)] has timed-out during conversion by [key_name(converter)].")
+						//message_admins("BLOODCULT: [key_name(convertee)] has timed-out during conversion by [key_name(converter)].")
 						log_admin("BLOODCULT: [key_name(convertee)] has timed-out during conversion by [key_name(converter)].")
 
 					abort(RITUALABORT_NOCHOICE)
 				else
-					message_admins("BLOODCULT: [key_name(convertee)] has refused conversion by [key_name(converter)].")
+					//message_admins("BLOODCULT: [key_name(convertee)] has refused conversion by [key_name(converter)].")
 					log_admin("BLOODCULT: [key_name(convertee)] has refused conversion by [key_name(converter)].")
 
 					abort(RITUALABORT_REFUSED)
@@ -1165,7 +1165,7 @@
 
 				//cult.send_flavour_text_refuse(convertee, converter) Disabling those for now, I'll rewrite them at a later date
 
-				message_admins("BLOODCULT: [key_name(convertee)] died because they were converted by [key_name(converter)] while cult-banned.")
+				//message_admins("BLOODCULT: [key_name(convertee)] died because they were converted by [key_name(converter)] while cult-banned.")
 				log_admin("BLOODCULT: [key_name(convertee)] died because they were converted by [key_name(converter)] while cult-banned.")
 				conversion.icon_state = ""
 				flick("rune_convert_failure",conversion)
@@ -2213,7 +2213,7 @@ var/list/blind_victims = list()
 		update_progbar()
 
 		sleep(10)
-	message_admins("A rune ritual has iterated for over 1000 blood payment procs. Something's wrong there.")
+	log_admin("A rune ritual has iterated for over 1000 blood payment procs. Something's wrong there.")
 
 /datum/rune_spell/blood_cult/summoncultist/proc/success()
 	if (rejoin)
@@ -2756,7 +2756,7 @@ var/list/bloodcult_exitportals = list()
 		update_progbar()
 
 		sleep(10)
-	message_admins("A rune ritual has iterated for over 1000 blood payment procs. Something's wrong there.")
+	log_admin("A rune ritual has iterated for over 1000 blood payment procs. Something's wrong there.")
 
 /datum/rune_spell/blood_cult/resurrect/proc/success()
 	spell_holder.overlays -= image('icons/obj/cult.dmi',"runetrigger-build")

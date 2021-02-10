@@ -45,7 +45,7 @@
         if(!mob_name)
             mob_name = M.name
         spark(targetTurf, 3, FALSE)
-    message_admins("Mob swarm of [spawn_amount] [mob_to_spawn] at [target_area].")
+    log_admin("Mob swarm of [spawn_amount] [mob_to_spawn] at [target_area].")
 
 
 /datum/event/mob_swarm/announce()

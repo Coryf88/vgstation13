@@ -308,7 +308,7 @@
 					return
 
 				visible_message("<span class='danger'>\The [src] evolves!</span>")
-				message_admins("Created a mutated cockroach at [formatJumpTo(get_turf(src))]; usr = [key_name(usr)]")
+				log_admin("Created a mutated cockroach at [formatJumpTo(get_turf(src))]; usr = [key_name(usr)]")
 				grow_up(/mob/living/simple_animal/hostile/bigroach)
 			else if(prob(20)) //After that, 20% chance to die
 				death(gore = 0)
@@ -321,7 +321,7 @@
 
 				playsound(src, 'sound/effects/lingextends.ogg', 100)
 				visible_message("<span class='userdanger'>\The [src] rapidly evolves, twisting and deforming into something terrifying before your own very eyes!</span>")
-				message_admins("Created a mutated cockroach matriarch at [formatJumpTo(get_turf(src))]; usr = [key_name(usr)]")
+				log_admin("Created a mutated cockroach matriarch at [formatJumpTo(get_turf(src))]; usr = [key_name(usr)]")
 				grow_up(/mob/living/simple_animal/hostile/bigroach/queen)
 
 /mob/living/simple_animal/cockroach/bite_act(mob/living/carbon/human/H)

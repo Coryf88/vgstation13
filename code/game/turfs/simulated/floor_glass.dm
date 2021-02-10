@@ -91,7 +91,7 @@
 				var/datum/gas_mixture/environment = src.return_air()
 				pressure = environment.return_pressure()
 			if (pressure > 0)
-				message_admins("Glass floor with pressure [pressure]kPa broken (method=[method]) by [M.real_name] ([formatPlayerPanel(M,M.ckey)]) at [formatJumpTo(src)]!")
+				//message_admins("Glass floor with pressure [pressure]kPa broken (method=[method]) by [M.real_name] ([formatPlayerPanel(M,M.ckey)]) at [formatJumpTo(src)]!")
 				log_admin("Window with pressure [pressure]kPa broken (method=[method]) by [M.real_name] ([M.ckey]) at [src]!")
 			M.visible_message("<span class='danger'>[M] falls through the glass!</span>", "<span style='font-size:largest' class='danger'>\The [src] breaks!</span>", "You hear breaking glass.")
 		break_turf(no_teleport)
@@ -255,7 +255,7 @@
 						var/datum/gas_mixture/environment = src.return_air()
 						pressure = environment.return_pressure()
 					if (pressure > 0)
-						message_admins("Glass floor with pressure [pressure]kPa deconstructed by [user.real_name] ([formatPlayerPanel(user,user.ckey)]) at [formatJumpTo(src)]!")
+						//message_admins("Glass floor with pressure [pressure]kPa deconstructed by [user.real_name] ([formatPlayerPanel(user,user.ckey)]) at [formatJumpTo(src)]!")
 						log_admin("Window with pressure [pressure]kPa deconstructed by [user.real_name] ([user.ckey]) at [src]!")
 
 					new sheettype(src, sheetamount)

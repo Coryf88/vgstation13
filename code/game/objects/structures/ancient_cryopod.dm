@@ -23,7 +23,7 @@
 /obj/machinery/cryopod/attack_hand(mob/user as mob)
 	if(thawing)
 		return
-	message_admins("[key_name_admin(user)] has activated an ancient cryopod.")
+	//message_admins("[key_name_admin(user)] has activated an ancient cryopod.")
 	log_game("[key_name(user)] has activated an ancient cryopod.")
 	var/turf/location = get_turf(src)
 	var/datum/gas_mixture/environment = location.return_air()
@@ -95,7 +95,7 @@
 	M.real_name = podname
 	M.name = podname
 
-	message_admins("[key_name_admin(M)] has spawned as a [title] from an ancient cryopod.")
+	//message_admins("[key_name_admin(M)] has spawned as a [title] from an ancient cryopod.")
 	log_game("[key_name(M)] has spawned as a [title] from an ancient cryopod.")
 
 // TO ADD ROLES: create cryorole datum below, add role to possible_roles list in cryopod definition above

@@ -102,7 +102,7 @@
 	if(iscarbon(imp_in))
 		var/mob/M = imp_in
 
-		message_admins("Explosive implant triggered in [M] ([M.key]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>) ")
+		//message_admins("Explosive implant triggered in [M] ([M.key]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>) ")
 		log_game("Explosive implant triggered in [M] ([M.key]).")
 
 		var/turf/T = get_turf(M)

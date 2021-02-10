@@ -735,7 +735,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	investigation_log(I_NTSL, "[msg]<br /><pre>[rawcode]</pre>")
 
 	if (length(rawcode)) // Let's not bother the admins for empty code.
-		message_admins("[msg] ([formatJumpTo(mob)])", 0, 1)
+		log_admin("[msg] ([formatJumpTo(mob)])", 0, 1)
 
 /obj/machinery/telecomms/server/proc/compile(var/mob/user)
 

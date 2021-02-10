@@ -366,7 +366,7 @@
 				var/naughty_stuff = air_contents.loggable_contents()
 				investigation_log(I_ATMOS, "had its valve <b>OPENED</b> by [key_name(usr)], starting transfer into the <font color='red'><b>air</b></font> ([naughty_stuff])")
 				if(naughty_stuff)
-					message_admins("[usr.real_name] ([formatPlayerPanel(usr,usr.ckey)]) opened a canister that contains [naughty_stuff] at [formatJumpTo(loc)]!")
+					//message_admins("[usr.real_name] ([formatPlayerPanel(usr,usr.ckey)]) opened a canister that contains [naughty_stuff] at [formatJumpTo(loc)]!")
 					log_admin("[usr]([ckey(usr.key)]) opened a canister that contains [naughty_stuff] at [loc.x], [loc.y], [loc.z]")
 
 		valve_open = !valve_open
@@ -376,7 +376,7 @@
 			if(valve_open)
 				var/naughty_stuff = air_contents.loggable_contents()
 				if(naughty_stuff)
-					message_admins("[usr.real_name] ([formatPlayerPanel(usr,usr.ckey)]) opened a canister that contains [naughty_stuff] at [formatJumpTo(loc)]!")
+					//message_admins("[usr.real_name] ([formatPlayerPanel(usr,usr.ckey)]) opened a canister that contains [naughty_stuff] at [formatJumpTo(loc)]!")
 					log_admin("[usr]([ckey(usr.key)]) opened a canister that contains [naughty_stuff] at [loc.x], [loc.y], [loc.z]")
 
 			if(istype(holding, /obj/item/weapon/tank))

@@ -657,9 +657,9 @@ var/global/list/cryo_health_indicator = list(	"full" = image("icon" = 'icons/obj
 			on = 1
 		update_icon()
 
-		message_admins("[key_name(L)] has turned \the [src] [on?"on":"off"]! [formatJumpTo(src)]")
+		log_admin("[key_name(L)] has turned \the [src] [on?"on":"off"]! [formatJumpTo(src)]")
 	else if(occupant && !ejecting) //Eject occupant
-		message_admins("[key_name(L)] has ejected [occupant] from \the [src]! [formatJumpTo(src)]")
+		log_admin("[key_name(L)] has ejected [occupant] from \the [src]! [formatJumpTo(src)]")
 		go_out(ejector = L)
 
 /obj/machinery/atmospherics/unary/cryo_cell/AltClick(mob/user) // AltClick = most common action = removing the patient

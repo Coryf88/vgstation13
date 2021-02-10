@@ -53,7 +53,7 @@
 
 /obj/machinery/power/am_control_unit/process()
 	if(exploding && !exploded)
-		message_admins("AME explosion at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>) - Last touched by [fingerprintslast]",0,1)
+		log_admin("AME explosion at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>) - Last touched by [fingerprintslast]",0,1)
 		exploded=1
 		explosion(get_turf(src),8,10,12,15)
 		if(src)
@@ -201,7 +201,7 @@
 		user.u_equip(W,1)
 		W.forceMove(src)
 		user.update_icons()
-		message_admins("AME loaded with fuel by [user.real_name] ([user.key]) at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+		log_admin("AME loaded with fuel by [user.real_name] ([user.key]) at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 		user.visible_message("[user.name] loads an [W.name] into the [src.name].", \
 				"You load an [W.name].", \
 				"You hear a thunk.")
@@ -377,7 +377,7 @@
 
 	if(href_list["togglestatus"])
 		toggle_power()
-		message_admins("AME toggled [active?"on":"off"] by [usr.real_name] ([usr.key]) at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+		log_admin("AME toggled [active?"on":"off"] by [usr.real_name] ([usr.key]) at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 		return 1
 
 	if(href_list["refreshicons"])
@@ -386,7 +386,7 @@
 
 	if(href_list["ejectjar"])
 		if(fueljar)
-			message_admins("AME fuel jar ejected by [usr.real_name] ([usr.key]) at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+			log_admin("AME fuel jar ejected by [usr.real_name] ([usr.key]) at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 			fueljar.forceMove(src.loc)
 			fueljar = null
 			//fueljar.control_unit = null currently it does not care where it is
@@ -399,7 +399,7 @@
 			return
 		fuel_injection=newval
 		fuel_injection=max(1,fuel_injection)
-		message_admins("AME injection strength set to [fuel_injection] by [usr.real_name] ([usr.key]) at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+		log_admin("AME injection strength set to [fuel_injection] by [usr.real_name] ([usr.key]) at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 		return 1
 
 	if(href_list["refreshstability"])
@@ -412,7 +412,7 @@
 /obj/machinery/power/am_control_unit/npc_tamper_act(mob/living/L)
 	if(prob(50)) //Toggle on/off
 		toggle_power()
-		message_admins("AME toggled [active?"on":"off"] by [key_name(L)] at [formatJumpTo(src)]",0,1)
+		log_admin("AME toggled [active?"on":"off"] by [key_name(L)] at [formatJumpTo(src)]",0,1)
 	else //Set strength
 		fuel_injection = rand(1, 300) //there's technically no limit on how high this can go so 300 is nothing but an arbitary limit
-		message_admins("AME injection strength set to [fuel_injection] by [key_name(L)] at [formatJumpTo(src)]",0,1)
+		log_admin("AME injection strength set to [fuel_injection] by [key_name(L)] at [formatJumpTo(src)]",0,1)

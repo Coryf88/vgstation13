@@ -91,7 +91,7 @@
 		if(istype(A,/obj/structure/window))
 			var/pdiff=performWallPressureCheck(A.loc)
 			if(pdiff>0)
-				message_admins("[A] with pdiff [pdiff] fire-axed by [user.real_name] ([formatPlayerPanel(user,user.ckey)]) at [formatJumpTo(A.loc)]!")
+				//message_admins("[A] with pdiff [pdiff] fire-axed by [user.real_name] ([formatPlayerPanel(user,user.ckey)]) at [formatJumpTo(A.loc)]!")
 				log_admin("[A] with pdiff [pdiff] fire-axed by [user.real_name] ([user.ckey]) at [A.loc]!")
 			var/obj/structure/window/W = A
 			W.shatter()

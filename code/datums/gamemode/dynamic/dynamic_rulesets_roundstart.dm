@@ -199,7 +199,7 @@
 /datum/dynamic_ruleset/roundstart/wizard/acceptable(var/population=0,var/threat=0)
 	if(wizardstart.len == 0)
 		log_admin("Cannot accept Wizard ruleset. Couldn't find any wizard spawn points.")
-		message_admins("Cannot accept Wizard ruleset. Couldn't find any wizard spawn points.")
+		//message_admins("Cannot accept Wizard ruleset. Couldn't find any wizard spawn points.")
 		return 0
 	return ..()
 
@@ -406,7 +406,7 @@
 
 	var/indice_pop = min(10, round(mode.roundstart_pop_ready/5) + 1)
 	var/operatives = operative_cap[indice_pop]
-	message_admins("[name]: indice_pop = [indice_pop], operatives = [operatives]")
+	//message_admins("[name]: indice_pop = [indice_pop], operatives = [operatives]")
 	var/leader = 1
 	for(var/operatives_number = 1 to operatives)
 		if(candidates.len <= 0)
@@ -460,7 +460,7 @@
 			if(player.mind.assigned_role == "AI")
 				//We have located an AI to replace
 				displace_AI(player)
-				message_admins("Displacing AI played by: [key_name(player)].")
+				//message_admins("Displacing AI played by: [key_name(player)].")
 	//There was no AI to displace, we're making one fresh
 	M.mind.assigned_role = "AI"
 	unction.HandleNewMind(M.mind)
@@ -547,7 +547,7 @@
 	high_population_requirement = 101
 
 /datum/dynamic_ruleset/roundstart/extended/execute()
-	message_admins("Starting a round of extended.")
+	//message_admins("Starting a round of extended.")
 	log_admin("Starting a round of extended.")
 	return TRUE
 
@@ -626,7 +626,7 @@
 /datum/dynamic_ruleset/roundstart/grinch/acceptable(var/population=0, var/threat=0)
 	if(grinchstart.len == 0)
 		log_admin("Cannot accept Grinch ruleset. Couldn't find any grinch spawn points.")
-		message_admins("Cannot accept Grinch ruleset. Couldn't find any grinch spawn points.")
+		//message_admins("Cannot accept Grinch ruleset. Couldn't find any grinch spawn points.")
 		return 0
 	if (!..())
 		return FALSE

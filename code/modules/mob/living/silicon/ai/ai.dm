@@ -430,7 +430,7 @@ var/list/ai_list = list()
 				view_core()
 			if(2)
 				if(call_shuttle_proc(src))
-					message_admins("[key_name_admin(src)] called the shuttle due to being hit with an EMP.'.")
+					log_admin("[key_name_admin(src)] called the shuttle due to being hit with an EMP.'.")
 	..()
 
 /mob/living/silicon/ai/ex_act(severity)

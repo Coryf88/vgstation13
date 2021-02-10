@@ -272,7 +272,7 @@ var/global/list/mining_surprises = typesof(/mining_surprise)-/mining_surprise
 			continue
 		nrooms--
 	postProcessComplex()
-	message_admins("Complex spawned at [formatJumpTo(start_loc)]")
+	log_admin("Complex spawned at [formatJumpTo(start_loc)]")
 	return 1
 
 /mining_surprise/proc/postProcessRoom(var/surprise_room/room)
@@ -296,7 +296,7 @@ var/global/list/mining_surprises = typesof(/mining_surprise)-/mining_surprise
 			continue
 		new thing(T)
 		candidates -= T
-		message_admins("Goodie [thing] spawned at [formatJumpTo(T)]")
+		log_admin("Goodie [thing] spawned at [formatJumpTo(T)]")
 
 	for(var/i=0;i<=rand(5,10);i++)
 		if(!candidates.len)
@@ -368,6 +368,6 @@ var/global/list/mining_surprises = typesof(/mining_surprise)-/mining_surprise
 	room.UpdateTurfs()
 	postProcessRoom(room)
 	rooms += room
-	message_admins("Room spawned at [formatJumpTo(start_loc)]")
+	log_admin("Room spawned at [formatJumpTo(start_loc)]")
 
 	return 1

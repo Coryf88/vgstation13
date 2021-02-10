@@ -82,7 +82,7 @@
 	return 1
 
 /datum/dynamic_ruleset/midround/from_ghosts/review_applications()
-	message_admins("Applicant list: [english_list(applicants)]")
+	//message_admins("Applicant list: [english_list(applicants)]")
 	var/candidate_checks = required_candidates
 	if (max_candidates)
 		candidate_checks = max_candidates
@@ -100,15 +100,15 @@
 			if(applicant.stat == DEAD) //Not an observer? If they're dead, make them one.
 				applicant = applicant.ghostize(FALSE)
 			else //Not dead? Disregard them, pick a new applicant
-				message_admins("[name]: Rule could not use [applicant], not dead.")
+				//message_admins("[name]: Rule could not use [applicant], not dead.")
 				i++
 				continue
 
 		if(!applicant)
-			message_admins("[name]: Applicant was null. This may be caused if the mind changed bodies after applying.")
+			//message_admins("[name]: Applicant was null. This may be caused if the mind changed bodies after applying.")
 			i++
 			continue
-		message_admins("DEBUG: Selected [applicant] for rule.")
+		//message_admins("DEBUG: Selected [applicant] for rule.")
 
 		var/mob/new_character = applicant
 
@@ -290,7 +290,7 @@
 
 /datum/dynamic_ruleset/midround/from_ghosts/faction_based/raginmages/acceptable(var/population=0,var/threat=0)
 	if(locate(/datum/dynamic_ruleset/roundstart/cwc) in mode.executed_rules)
-		message_admins("Rejected Ragin' Mages as there was a Civil War.")
+		//message_admins("Rejected Ragin' Mages as there was a Civil War.")
 		return 0 //This is elegantly skipped by specific ruleset.
 		//This means that all ragin mages in CWC will be called only by that ruleset.
 	else
@@ -299,7 +299,7 @@
 /datum/dynamic_ruleset/midround/from_ghosts/faction_based/raginmages/ready(var/forced = 0)
 	if(wizardstart.len == 0)
 		log_admin("Cannot accept Wizard ruleset. Couldn't find any wizard spawn points.")
-		message_admins("Cannot accept Wizard ruleset. Couldn't find any wizard spawn points.")
+		//message_admins("Cannot accept Wizard ruleset. Couldn't find any wizard spawn points.")
 		return 0
 	return ..()
 
@@ -525,7 +525,7 @@
 /datum/dynamic_ruleset/midround/from_ghosts/grinch/acceptable(var/population=0, var/threat=0)
 	if(grinchstart.len == 0)
 		log_admin("Cannot accept Grinch ruleset. Couldn't find any grinch spawn points.")
-		message_admins("Cannot accept Grinch ruleset. Couldn't find any grinch spawn points.")
+		//message_admins("Cannot accept Grinch ruleset. Couldn't find any grinch spawn points.")
 		return 0
 	if (!..())
 		return FALSE
@@ -553,10 +553,10 @@
 
 /datum/dynamic_ruleset/midround/from_ghosts/catbeast/acceptable(var/population=0,var/threat=0)
 	if(mode.threat>50) //We're threatening enough!
-		message_admins("Rejected catbeast ruleset, [mode.threat] threat was over 50.")
+		//message_admins("Rejected catbeast ruleset, [mode.threat] threat was over 50.")
 		return FALSE
 	if(!..())
-		message_admins("Rejected catbeast ruleset. Not enough threat somehow??")
+		//message_admins("Rejected catbeast ruleset. Not enough threat somehow??")
 		return FALSE
 	return TRUE
 
@@ -665,7 +665,7 @@
 	
 
 	if (vents.len == 0)
-		message_admins("A suitable vent couldn't be found for alien larva. That's bad.")
+		//message_admins("A suitable vent couldn't be found for alien larva. That's bad.")
 		return
 	return 1
 
@@ -740,7 +740,7 @@
 
 	spawn(59 SECONDS)	//its 59 seconds to make sure they cant unbuckle themselves beforehand
 		if(!transport_shuttle.move_to_dock(stationdock))
-			message_admins("PRISONER TRANSFER SHUTTLE FAILED TO MOVE! PANIC!")
+			//message_admins("PRISONER TRANSFER SHUTTLE FAILED TO MOVE! PANIC!")
 			return
 
 		//Try to send the shuttle back every 15 seconds
@@ -753,7 +753,7 @@
 			if(!can_move_shuttle())	
 				continue
 			if(!transport_shuttle.move_to_dock(centcomdock))
-				message_admins("The transport shuttle couldn't return to centcomm for some reason.")
+				//message_admins("The transport shuttle couldn't return to centcomm for some reason.")
 				return
 
 /datum/dynamic_ruleset/midround/from_ghosts/prisoner/proc/can_move_shuttle()

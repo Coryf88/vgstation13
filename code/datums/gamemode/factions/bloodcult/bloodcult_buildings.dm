@@ -799,7 +799,7 @@
 			else
 				cult.stage(CULT_ACT_III,T)
 		else
-			message_admins("Blood Cult: A sacrifice was completed...but we cannot find the cult faction...")//failsafe in case of admin varedit fuckery
+			log_admin("Blood Cult: A sacrifice was completed...but we cannot find the cult faction...")//failsafe in case of admin varedit fuckery
 		qdel(src)
 
 #undef ALTARTASK_NONE
@@ -1427,7 +1427,7 @@ var/list/bloodstone_list = list()
 	*/
 	for(var/obj/structure/cult/bloodstone/B in bloodstone_list)
 		if (B != src && !B.loc)
-			message_admins("Blood Cult: A blood stone was somehow spawned in nullspace. It has been destroyed.")
+			log_admin("Blood Cult: A blood stone was somehow spawned in nullspace. It has been destroyed.")
 			qdel(B)
 
 	if (bloodstone_list.len <= 0 || anchor)

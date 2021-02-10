@@ -73,7 +73,7 @@
 				var/obj/item/mecha_parts/mecha_tracking/MT = topic_filter.getObj("shock")
 				var/obj/mecha/M = MT.in_mecha()
 				MT.shock()
-				message_admins("[key_name_admin(usr)] detonated \a [MT] in [M] via exosuit control console.")
+				//message_admins("[key_name_admin(usr)] detonated \a [MT] in [M] via exosuit control console.")
 				log_game("[key_name_admin(usr)] detonated \a [MT] in [M] via exosuit control console.")
 			if ("No")
 				to_chat(usr, "You have second thoughts.")

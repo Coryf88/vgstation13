@@ -56,7 +56,7 @@
 
 		log_attack("<font color='red'>[user.name] ([user.ckey]) primed \a [src].</font>")
 		log_admin("ATTACK: [user] ([user.ckey]) primed \a [src] at ([user.x],[user.y],[user.z]).")
-		message_admins("ATTACK: [user] ([user.ckey]) primed \a [src] at [formatJumpTo(user.loc)].")
+		//message_admins("ATTACK: [user] ([user.ckey]) primed \a [src] at [formatJumpTo(user.loc)].")
 		primed_by = "[user] ([user.ckey])"
 
 		activate()
@@ -229,7 +229,7 @@
 		if(user)
 			log_attack("<font color='red'>[user.name] ([user.ckey]) primed \a [src]</font>")
 			log_admin("ATTACK: [user] ([user.ckey]) primed \a [src] at ([user.x],[user.y],[user.z]).")
-			message_admins("ATTACK: [user] ([user.ckey]) primed \a [src] at [formatJumpTo(user.loc)].")
+			//message_admins("ATTACK: [user] ([user.ckey]) primed \a [src] at [formatJumpTo(user.loc)].")
 			primed_by = "[user] ([user.ckey])"
 
 	return

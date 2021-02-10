@@ -83,7 +83,7 @@
 				M.updatehealth()
 			src.occupant_message("You hit [target].")
 			src.visible_message("<span class='red'><b>[src.name] hits [target].</b></span>")
-			message_admins("[key_name_and_info(src.occupant)] mech punched [target] with [src.name] ([formatJumpTo(src)])",0,1)
+			//message_admins("[key_name_and_info(src.occupant)] mech punched [target] with [src.name] ([formatJumpTo(src)])",0,1)
 			log_attack("[key_name(src.occupant)] mech punched [target] with [src.name] ([formatLocation(src)])")
 		else
 			step_away(M,src)

@@ -1746,7 +1746,7 @@ Thanks.
 		for(var/ID in disease_list)
 			var/datum/disease2/disease/V = disease_list[ID]
 			if (!V)
-				message_admins("[key_name(src)] is trying to assume contact diseases from touching \a [source], but the disease_list contains an ID ([ID]) that isn't associated to an actual disease datum! Ping Deity about it please.")
+				log_admin("[key_name(src)] is trying to assume contact diseases from touching \a [source], but the disease_list contains an ID ([ID]) that isn't associated to an actual disease datum! Ping Deity about it please.")
 				return
 			if(!blocked && V.spread & SPREAD_CONTACT)
 				infect_disease2(V, notes="(Contact, from [source])")

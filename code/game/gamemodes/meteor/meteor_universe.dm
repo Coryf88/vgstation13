@@ -40,7 +40,7 @@
 	CA.supply_delay = supply_delay
 	command_alert(CA)
 
-	message_admins("Meteor Storm announcement given. Meteors will arrive in approximately [round(meteor_delay/600)] minutes. Shuttle will take [10*meteor_shuttle_multiplier] minutes to arrive and supplies are about to be dispatched in the Bar.")
+	log_admin("Meteor Storm announcement given. Meteors will arrive in approximately [round(meteor_delay/600)] minutes. Shuttle will take [10*meteor_shuttle_multiplier] minutes to arrive and supplies are about to be dispatched in the Bar.")
 
 	spawn(100) //Time for the announcement to spell out)
 

@@ -215,7 +215,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			possible_objectives |= OBJ_CONVERT
 
 	if(!possible_objectives.len)//No more possible objectives, time to summon Nar-Sie
-		message_admins("No suitable objectives left! Nar-Sie objective unlocked.")
+		log_admin("No suitable objectives left! Nar-Sie objective unlocked.")
 		return OBJ_SUMMON
 	else
 		return pick(possible_objectives)
@@ -230,7 +230,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			if (members.len <= 4) // We only got 4 members : to the summon phase
 				cult_state = CULT_SUMMON
 				next_objective = new /datum/objective/summon_narsie
-				message_admins("Only 4 cultists left : Nar-Sie objective unlocked.")
+				log_admin("Only 4 cultists left : Nar-Sie objective unlocked.")
 			else
 				cult_state = CULT_INTERMEDIATE
 				var/new_obj = pick_objective()
@@ -272,7 +272,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 
 /datum/faction/cult/narsie/handleNewObjective(var/datum/objective/O)
 	if (current_objective)
-		message_admins("Trying to add objective [O] to [src], which already has an objective. Remove the objective first.")
+		log_admin("Trying to add objective [O] to [src], which already has an objective. Remove the objective first.")
 		return FALSE
 	. = ..()
 	if (!.)
@@ -284,7 +284,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 /datum/faction/cult/narsie/handleRemovedObjective(var/datum/objective/O)
 	ASSERT(O)
 	if (!current_objective)
-		message_admins("Trying to remove objective [O] to [src], but the faction has no current objective.")
+		log_admin("Trying to remove objective [O] to [src], but the faction has no current objective.")
 		return FALSE
 	if (!(O in objective_holder.objectives) || current_objective != O) // We're trying to remove an objective that's already been completed, or something that never was in our objectives
 		return FALSE
@@ -297,10 +297,10 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 /datum/faction/cult/narsie/handleForcedCompletedObjective(var/datum/objective/O)
 	ASSERT(O)
 	if (!current_objective)
-		message_admins("Trying to force completion of objective [O] to [src], but the faction has no current objective.")
+		log_admin("Trying to force completion of objective [O] to [src], but the faction has no current objective.")
 		return FALSE
 	if (!(O in objective_holder.objectives) || current_objective != O) // Same as previous
-		message_admins("Trying to force completion of objective [O] to [src], but this isn't the faction's current objective.")
+		log_admin("Trying to force completion of objective [O] to [src], but this isn't the faction's current objective.")
 		return FALSE
 	getNewObjective()
 
@@ -342,12 +342,12 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	var/datum/objective/target/assassinate/sacrifice/S = current_objective
 
 	if (!S.target)
-		message_admins("No longer a valid target for the sacrifice: rerolling.")
+		log_admin("No longer a valid target for the sacrifice: rerolling.")
 		reroll_sac(S)
 		return
 
 	if (S.target.current.z != map.zMainStation && S.target.current.z != map.zAsteroid) // Our target is in deep space, and we can't really have that
-		message_admins("Sacrifice target is in deep space, or dead : rerolling.")
+		log_admin("Sacrifice target is in deep space, or dead : rerolling.")
 		reroll_sac(S)
 		return
 

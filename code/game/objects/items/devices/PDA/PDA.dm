@@ -2146,7 +2146,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 								U << browse(null, "window=pda")
 								create_message(null, P, null, null, pick(syndicate_code_phrase)) //friendly fire
 								log_admin("[key_name(U)] attempted to blow up syndicate [P] with the Detomatix cartridge but failed")
-								message_admins("[key_name_admin(U)] attempted to blow up syndicate [P] with the Detomatix cartridge but failed", 1)
+								//message_admins("[key_name_admin(U)] attempted to blow up syndicate [P] with the Detomatix cartridge but failed", 1)
 								cartridge:shock_charges--
 							else if (!P.detonate || prob(difficulty * 2))
 								U.show_message("<span class='warning'>An error flashes on your [src]; [pick("Encryption","Connection","Verification","Handshake","Detonation","Injection")] error!</span>", 1)
@@ -2158,12 +2158,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 								var/message = english_list(garble, "", "", "", "")
 								create_message(null, P, null, null, message) //the jig is up
 								log_admin("[key_name(U)] attempted to blow up [P] with the Detomatix cartridge but failed")
-								message_admins("[key_name_admin(U)] attempted to blow up [P] with the Detomatix cartridge but failed", 1)
+								//message_admins("[key_name_admin(U)] attempted to blow up [P] with the Detomatix cartridge but failed", 1)
 								cartridge:shock_charges--
 							else
 								U.show_message("<span class='notice'>Success!</span>", 1)
 								log_admin("[key_name(U)] attempted to blow up [P] with the Detomatix cartridge and succeeded")
-								message_admins("[key_name_admin(U)] attempted to blow up [P] with the Detomatix cartridge and succeeded", 1)
+								//message_admins("[key_name_admin(U)] attempted to blow up [P] with the Detomatix cartridge and succeeded", 1)
 								cartridge:shock_charges--
 								P.explode()
 			else

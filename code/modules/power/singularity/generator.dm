@@ -23,7 +23,7 @@
 			prints += ",[line] "
 
 	log_admin("New singularity made[prints]. Last touched by [fingerprintslast].")
-	message_admins("New singularity made[prints]. Last touched by [fingerprintslast].")
+	//message_admins("New singularity made[prints]. Last touched by [fingerprintslast].")
 	new /obj/machinery/singularity(get_turf(src), 50)
 	qdel(src)
 

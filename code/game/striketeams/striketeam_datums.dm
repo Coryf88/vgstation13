@@ -361,7 +361,7 @@ var/list/sent_strike_teams = list()
 		var/datum/outfit/concrete_outfit = new outfit_datum
 		concrete_outfit.equip(new_commando)
 	else
-		message_admins("Striketeam member created without an outfit selected.")
+		log_admin("Striketeam member created without an outfit selected.")
 		var/datum/outfit/concrete_outfit = new /datum/outfit/striketeam/death_commando
 		concrete_outfit.equip(new_commando)
 

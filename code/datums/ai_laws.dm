@@ -156,7 +156,7 @@ var/global/list/mommi_laws = list(
 			if(LAW_INHERENT)
 				lawtype_str = "core law #[index]"
 		log_admin("[key_name(usr)] has removed [lawtype_str] on [key_name(S)]: \"[oldlaw]\"")
-		message_admins("[usr.key] removed [lawtype_str] on [key_name(S)]: \"[oldlaw]\"")
+		//message_admins("[usr.key] removed [lawtype_str] on [key_name(S)]: \"[oldlaw]\"")
 		lawchanges.Add("[key_name(usr)] has removed [lawtype_str] on [key_name(S)]: \"[oldlaw]\"")
 		usr.client.holder.show_player_panel(S)
 

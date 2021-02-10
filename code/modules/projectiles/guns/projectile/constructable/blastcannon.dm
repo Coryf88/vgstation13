@@ -170,7 +170,7 @@
 
 				log_str += "(<A HREF='?_src_=holder;adminmoreinfo=\ref[shooter]'>?</A>)"
 
-				message_admins(log_str, 0, 1)
+				//message_admins(log_str, 0, 1)
 				log_game(log_str)
 
 			for(var/obj/machinery/computer/bhangmeter/bhangmeter in doppler_arrays)

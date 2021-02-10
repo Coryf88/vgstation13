@@ -416,7 +416,7 @@ var/list/obj/machinery/requests_console/requests_consoles = list()
 			to_chat(M, "<b><font size = 3><font color = red>[department] announcement:</font color> [msg]</font size></b>")
 			M << sound(announceSound)
 	log_say("[key_name(user)] ([formatJumpTo(get_turf(user))]) has made an announcement from \the [src]: [msg]")
-	message_admins("[key_name_admin(user)] has made an announcement from \the [src].", 1)
+	//message_admins("[key_name_admin(user)] has made an announcement from \the [src].", 1)
 	announceAuth = 0
 	message = ""
 	screen = 0

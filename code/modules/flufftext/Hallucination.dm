@@ -244,7 +244,7 @@ mob/living/carbon/proc/handle_hallucinations()
 					src << sound('sound/AI/aimalf.ogg')
 
 					if(src.client)
-						message_admins("[key_name(src)] just got a fake delta AI message from hallucinating! [formatJumpTo(get_turf(src))]")
+						log_admin("[key_name(src)] just got a fake delta AI message from hallucinating! [formatJumpTo(get_turf(src))]")
 				else
 					switch(rand(1,10)) //Copied from nanites disease
 						if(1)
@@ -337,7 +337,7 @@ mob/living/carbon/proc/handle_hallucinations()
 
 				var/duration = rand(60 SECONDS, 120 SECONDS)
 				if(src.client)
-					message_admins("[key_name(src)] just imagined that [L] looks like a [random_mob], spooky! [formatJumpTo(get_turf(src))]")
+					log_admin("[key_name(src)] just imagined that [L] looks like a [random_mob], spooky! [formatJumpTo(get_turf(src))]")
 				spawn(duration)
 					if(C)
 						C.images.Remove(horror) //Remove the image from hallucinating mob

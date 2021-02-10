@@ -762,7 +762,7 @@ var/global/mulebot_count = 0
 		//GO!
 		start()
 
-		message_admins("[key_name(L)] has mounted \the [src] and is riding it to [new_destination.location] ([formatJumpTo(new_destination)])! [formatJumpTo(src)]")
+		log_admin("[key_name(L)] has mounted \the [src] and is riding it to [new_destination.location] ([formatJumpTo(new_destination)])! [formatJumpTo(src)]")
 	else
 		if(!panel_open)
 			togglePanelOpen(null, L)

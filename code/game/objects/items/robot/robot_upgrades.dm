@@ -221,7 +221,7 @@
 	if(R.can_diagnose())
 		to_chat(R, "<span class='danger'>ALERT: Malicious code detected in \the [name].</span>")
 
-	message_admins("[key_name_admin(user)] ([user.type]) used \a [name] on \the [R](\a [R.modtype] [R.braintype]).")
+	log_admin("[key_name_admin(user)] ([user.type]) used \a [name] on \the [R](\a [R.modtype] [R.braintype]).")
 
 	R.illegal_weapons = TRUE
 	R.SetEmagged()

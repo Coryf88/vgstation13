@@ -18,10 +18,10 @@
 
 	if((living_cultists * 2) < total)
 		if (total < 15)
-			message_admins("There are [total] players, too little for the mass convert objective!")
+			log_admin("There are [total] players, too little for the mass convert objective!")
 			return FALSE
 		else if (total > 50)
-			message_admins("There are [total] players, too many for the mass convert objective!")
+			log_admin("There are [total] players, too many for the mass convert objective!")
 			return FALSE
 		return round(total / 2)
 

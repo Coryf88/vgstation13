@@ -62,7 +62,7 @@
 	grenades -= F
 	F.forceMove(user.loc)
 	F.throw_at(target, 30, 2)
-	message_admins("[key_name_admin(user)] fired [F.name] from [src.name].")
+	log_admin("[key_name_admin(user)] fired [F.name] from [src.name].")
 	log_game("[key_name_admin(user)] launched [F.name] from [src.name].")
 	playsound(user.loc, 'sound/weapons/grenadelauncher.ogg', 50, 1, -3)
 	if(timer_override)

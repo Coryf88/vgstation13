@@ -2,7 +2,7 @@
 
 /mob/proc/rightandwrong(var/summon_type) //0 = Summon Guns, 1 = Summon Magic, 2 = Summon Swords
 	to_chat(usr, "<B>You summoned [summon_type]!</B>")
-	message_admins("[key_name_admin(usr, 1)] summoned [summon_type]!")
+	//message_admins("[key_name_admin(usr, 1)] summoned [summon_type]!")
 	log_game("[key_name(usr)] summoned [summon_type]!")
 
 	var/datum/role/survivor_type

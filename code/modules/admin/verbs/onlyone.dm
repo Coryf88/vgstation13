@@ -21,11 +21,11 @@
 	var/datum/only_one/event = new event_type()
 
 	if(!event.event_setup_start())
-		message_admins("<span class='notice'>[key_name_admin(usr)] tried to use THERE CAN BE ONLY ONE, but it failed in setup. (Type: [event_type_name])</span>", 1)
+		//message_admins("<span class='notice'>[key_name_admin(usr)] tried to use THERE CAN BE ONLY ONE, but it failed in setup. (Type: [event_type_name])</span>", 1)
 		log_admin("[key_name(usr)] tried to use there can be only one, but it failed in setup. (Type: [event_type_name])")
 		return
 
-	message_admins("<span class='notice'>[key_name_admin(usr)] used THERE CAN BE ONLY ONE! (Type: [event_type_name])</span>", 1)
+	//message_admins("<span class='notice'>[key_name_admin(usr)] used THERE CAN BE ONLY ONE! (Type: [event_type_name])</span>", 1)
 	log_admin("[key_name(usr)] used there can be only one. (Type: [event_type_name])")
 
 	var/list/mobs_to_convert = list()

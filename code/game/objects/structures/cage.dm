@@ -174,7 +174,7 @@
 		for(var/mob/living/L in get_locked(/datum/locking_category/cage)) //Move atom locked mobs inside
 			unlock_atom(L)
 			log_admin("[key_name(usr)] has covered \the [L] in their cage at [formatJumpTo(src)]")
-			message_admins("[key_name(usr)] has covered \the [L] in their cage at [formatJumpTo(src)]")
+			//message_admins("[key_name(usr)] has covered \the [L] in their cage at [formatJumpTo(src)]")
 			L.forceMove(src)
 
 	else
@@ -185,7 +185,7 @@
 		for(var/mob/living/L in contents) //Move hidden mobs to the outside
 			L.forceMove(get_turf(src))
 			log_admin("[key_name(usr)] has uncovered \the [L] from their cage at [formatJumpTo(src)]")
-			message_admins("[key_name(usr)] has uncovered \the [L] from their cage at [formatJumpTo(src)]")
+			//message_admins("[key_name(usr)] has uncovered \the [L] from their cage at [formatJumpTo(src)]")
 			lock_atom(L, /datum/locking_category/cage)
 
 	update_icon()
@@ -201,7 +201,7 @@
 					continue
 				add_mob(L)
 				log_admin("[key_name(usr)] has trapped \the [L] in a cage at [formatJumpTo(src)]")
-				message_admins("[key_name(usr)] has trapped \the [L] in a cage at [formatJumpTo(src)]")
+				//message_admins("[key_name(usr)] has trapped \the [L] in a cage at [formatJumpTo(src)]")
 
 
 			door_state = C_CLOSED
@@ -214,7 +214,7 @@
 			for(var/mob/living/L in (contents + get_locked(/datum/locking_category/cage)))
 				unlock_atom(L)
 				log_admin("[key_name(usr)] has released \the [L] from their cage at [formatJumpTo(src)]")
-				message_admins("[key_name(usr)] has released \the [L] from their cage at [formatJumpTo(src)]")
+				//message_admins("[key_name(usr)] has released \the [L] from their cage at [formatJumpTo(src)]")
 				L.forceMove(get_turf(src))
 
 			door_state = C_OPENED

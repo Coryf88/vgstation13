@@ -13,7 +13,7 @@
 		return TRUE
 	var/datum/role/streamer/S = owner.GetRole(STREAMER)
 	if (!S)
-		message_admins("BUG: [owner.current] was given a streamer objective but is not affiliated with Spess.TV!")
+		log_admin("BUG: [owner.current] was given a streamer objective but is not affiliated with Spess.TV!")
 		return FALSE
 	return length(S.followers) >= followers_jectie
 
@@ -32,6 +32,6 @@
 		return TRUE
 	var/datum/role/streamer/S = owner.GetRole(STREAMER)
 	if (!S)
-		message_admins("BUG: [owner.current] was given a streamer objective but is not affiliated with Spess.TV!")
+		log_admin("BUG: [owner.current] was given a streamer objective but is not affiliated with Spess.TV!")
 		return FALSE
 	return length(S.subscribers) >= subscribers_jectie

@@ -158,7 +158,7 @@
 	M.antag_roles[id] = src
 	objectives.owner = M
 	if(msg_admins)
-		message_admins("[key_name(M)] is now \an [id].[M.current ? " [formatJumpTo(M.current)]" : ""]")
+		log_admin("[key_name(M)] is now \an [id].[M.current ? " [formatJumpTo(M.current)]" : ""]")
 
 	if (!OnPreSetup())
 		return FALSE
@@ -168,7 +168,7 @@
 	M.antag_roles[id] = null
 	M.antag_roles.Remove(id)
 	if(msg_admins)
-		message_admins("[key_name(M)] is <span class='danger'>no longer</span> \an [id].[M.current ? " [formatJumpTo(M.current)]" : ""]")
+		log_admin("[key_name(M)] is <span class='danger'>no longer</span> \an [id].[M.current ? " [formatJumpTo(M.current)]" : ""]")
 	antag = null
 
 // Destroy this role

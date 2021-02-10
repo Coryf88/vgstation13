@@ -42,7 +42,7 @@
 
 	world << sound('sound/AI/commandreport.ogg', volume = 60)
 	log_admin("[key_name(user)] has created a fake command report: [input]")
-	message_admins("[key_name_admin(user)] has created a fake command report", 1)
+	//message_admins("[key_name_admin(user)] has created a fake command report", 1)
 	feedback_add_details("admin_verb","FAKECCR")
 
 	icon_state = "intercom-p-open"

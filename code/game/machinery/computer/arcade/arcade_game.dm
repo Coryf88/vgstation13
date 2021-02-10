@@ -210,7 +210,7 @@
 				new /obj/item/clothing/head/collectable/petehat(holder.loc)
 				new /obj/item/device/maracas/cubanpete(holder.loc)
 				new /obj/item/device/maracas/cubanpete(holder.loc)
-				message_admins("[key_name_admin(usr)] has outbombed Cuban Pete and been awarded explosive maracas.")
+				//message_admins("[key_name_admin(usr)] has outbombed Cuban Pete and been awarded explosive maracas.")
 				log_game("[key_name_admin(usr)] has outbombed Cuban Pete and been awarded explosive maracas.")
 				holder.New()
 				emagged = 0

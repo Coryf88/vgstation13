@@ -17,6 +17,6 @@
 
 			new /obj/structure/cable/powercreeper(T)
 
-			message_admins("<span class='notice'>Event: powercreeper spawned at [T.loc] <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>(JMP)</a></span>")
+			log_admin("<span class='notice'>Event: powercreeper spawned at [T.loc] <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>(JMP)</a></span>")
 			return
 		message_admins("<span class='notice'>Event: powercreeper failed to find a viable turf.</span>")

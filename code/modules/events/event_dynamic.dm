@@ -8,11 +8,11 @@ var/list/event_last_fired = list()
 	var/minutes_passed = world.time/600
 	var/roundstart_delay = 50
 	if(minutes_passed < roundstart_delay) //Self-explanatory
-		message_admins("Too early to trigger random event, aborting.")
+		log_admin("Too early to trigger random event, aborting.")
 		return
 
 	if(universe.name != "Normal")
-		message_admins("Universe isn't normal, aborting random event spawn.")
+		log_admin("Universe isn't normal, aborting random event spawn.")
 		return
 
 	var/list/active_with_role = number_active_with_role()
@@ -73,7 +73,7 @@ var/list/event_last_fired = list()
 
 	score["eventsendured"]++
 
-	message_admins("[picked_event] firing. Time to have fun.")
+	log_admin("[picked_event] firing. Time to have fun.")
 
 	return 1
 
