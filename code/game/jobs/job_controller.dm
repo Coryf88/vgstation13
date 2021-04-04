@@ -284,16 +284,27 @@ var/global/datum/controller/occupations/job_master
 		//Check the head jobs first each level
 		CheckHeadPositions(level)
 
-		// Loop through all unassigned players
-		for(var/mob/new_player/player in unassigned)
-			if(player.client.prefs.alternate_option == GET_EMPTY_JOB)
-				continue //This player doesn't want to share a job title. We need to deal with them last.
+		var/assignedJob = TRUE
+		while(assignedJob)
+			assignedJob = FALSE
+			// Loop through all unassigned players
+			for(var/mob/new_player/player in unassigned)
+				if(player.client.prefs.alternate_option == GET_EMPTY_JOB)
+					continue //This player doesn't want to share a job title. We need to deal with them last.
 
-			// Loop through all jobs
-			for(var/datum/job/job in shuffledoccupations)
-				if(TryAssignJob(player,level,job))
-					unassigned -= player
-					break
+				// Loop through all jobs
+				if(shuffledoccupations.len == 0)
+					shuffledoccupations = shuffle(occupations)
+				for(var/datum/job/job in shuffledoccupations)
+					if(TryAssignJob(player,level,job))
+						assignedJob = TRUE
+						unassigned -= player
+
+						shuffledoccupations -= job
+						break
+
+			if(assignedJob)
+				shuffledoccupations = shuffle(occupations)
 
 	// Hand out random jobs to the people who didn't get any in the last check
 	// Also makes sure that they got their preference correct
@@ -346,6 +357,7 @@ var/global/datum/controller/occupations/job_master
 				UnassignRole(player)
 				AssignRole(player, "Assistant")
 
+	shuffledoccupations = shuffle(occupations)
 	//Final pass - first deal with the empty job group, otherwise send any leftovers to the lobby
 	final_pass: //this is a loop label
 		for(var/mob/new_player/player in unassigned)
@@ -355,6 +367,7 @@ var/global/datum/controller/occupations/job_master
 						if(job.current_positions) //already someone in this job title
 							continue
 						if(TryAssignJob(player,level,job))
+							shuffledoccupations -= job
 							unassigned -= player
 							continue final_pass //move on to the next player entirely
 
